@@ -17,79 +17,140 @@ import java.awt.GridLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTable;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JTextField;
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PsqPadrao extends JFrame{
-	private JLabel lblTitulo;
-	private JTable tblResultados;
+	public JLabel lblTitulo;
+	public JTable tblResultados;
+	public JTextField textField;
+	public JButton btnInserir;
+	public JButton btnAlterar;
+	public JButton btnExcluir;
+	public JButton btnImportarXML;
+	public JButton btnExportarXML;
+	public JButton btnImportarTXT;
+	public JButton btnSair;
 	
 	public PsqPadrao(){
-		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 67, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 29, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		getContentPane().setLayout(gridBagLayout);
+		setTitle("Pesquisa Padr\u00E3o");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
 		
 		lblTitulo = new JLabel("Pesquisa Padr\u00E3o");
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 18));
-		GridBagConstraints gbc_lblTitulo = new GridBagConstraints();
-		gbc_lblTitulo.gridwidth = 15;
-		gbc_lblTitulo.insets = new Insets(0, 0, 5, 0);
-		gbc_lblTitulo.gridx = 0;
-		gbc_lblTitulo.gridy = 0;
-		getContentPane().add(lblTitulo, gbc_lblTitulo);
 		
 		tblResultados = new JTable();
-		GridBagConstraints gbc_tblResultados = new GridBagConstraints();
-		gbc_tblResultados.gridheight = 6;
-		gbc_tblResultados.gridwidth = 14;
-		gbc_tblResultados.insets = new Insets(0, 0, 5, 5);
-		gbc_tblResultados.fill = GridBagConstraints.BOTH;
-		gbc_tblResultados.gridx = 0;
-		gbc_tblResultados.gridy = 2;
-		getContentPane().add(tblResultados, gbc_tblResultados);
 		
-		JButton btnInserir = new JButton("Inserir");
-		GridBagConstraints gbc_btnInserir = new GridBagConstraints();
-		gbc_btnInserir.insets = new Insets(0, 0, 5, 0);
-		gbc_btnInserir.gridx = 14;
-		gbc_btnInserir.gridy = 2;
-		gbc_btnInserir.ipadx = 20;  
-		gbc_btnInserir.ipady = 5;	
-		getContentPane().add(btnInserir, gbc_btnInserir);
+		btnInserir = new JButton("Inserir");
+		btnInserir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
 		
-		JButton btnAlterar = new JButton("Alterar");
-		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
-		gbc_btnAlterar.insets = new Insets(0, 0, 5, 0);
-		gbc_btnAlterar.gridx = 14;
-		gbc_btnAlterar.gridy = 3;
-		gbc_btnAlterar.ipadx = 18;  
-		gbc_btnAlterar.ipady = 5;	
-		getContentPane().add(btnAlterar, gbc_btnAlterar);
+		btnAlterar = new JButton("Alterar");
 		
-		JButton btnExcluir = new JButton("Excluir");
-		GridBagConstraints gbc_btnExcluir = new GridBagConstraints();
-		gbc_btnExcluir.insets = new Insets(0, 0, 5, 0);
-		gbc_btnExcluir.gridx = 14;
-		gbc_btnExcluir.gridy = 4;
-		gbc_btnExcluir.ipadx = 20;  
-		gbc_btnExcluir.ipady = 5;	
-		getContentPane().add(btnExcluir, gbc_btnExcluir);
+		btnExcluir = new JButton("Excluir");
 		
-		JButton btnSair = new JButton("Sair");
-		GridBagConstraints gbc_btnSair = new GridBagConstraints();
-		gbc_btnSair.insets = new Insets(0, 0, 5, 0);
-		gbc_btnSair.gridx = 14;
-		gbc_btnSair.gridy = 5;
-		gbc_btnSair.ipadx = 32;  
-		gbc_btnSair.ipady = 5;			
-		getContentPane().add(btnSair, gbc_btnSair);
+		btnImportarXML = new JButton("Importar XML");
+		
+		btnExportarXML = new JButton("Exportar XML");
+		
+		btnImportarTXT = new JButton("Importar TXT");
+		
+		btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		
+		JLabel lblPesquisa = new JLabel("Pesquisa");
+		
+		JButton btnNewButton = new JButton("Serializar");
+		
+		JButton btnNewButton_1 = new JButton("Restaurar");
+		GroupLayout groupLayout = new GroupLayout(getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(lblPesquisa)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE))
+						.addComponent(tblResultados, GroupLayout.PREFERRED_SIZE, 523, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnExportarXML)
+						.addComponent(btnImportarXML)
+						.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnInserir, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnNewButton_1)
+						.addComponent(btnImportarTXT, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnNewButton))
+					.addGap(49))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(5)
+					.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 881, Short.MAX_VALUE)
+					.addGap(5))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblTitulo)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblPesquisa))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(3)
+							.addComponent(btnInserir, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnImportarXML)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnExportarXML)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnNewButton)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnNewButton_1)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnImportarTXT)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnSair))
+						.addComponent(tblResultados, GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE))
+					.addContainerGap())
+		);
+		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {btnInserir, btnAlterar, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair, btnNewButton, btnNewButton_1});
+		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnInserir, btnAlterar, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair, btnNewButton, btnNewButton_1});
+		getContentPane().setLayout(groupLayout);
 
 		JPanel jp = new JPanel();  //cria painel
 		jp.setLayout(new BorderLayout()); // seta o layout
+		jp.setSize(800, 600);
 		JScrollPane jsc = new JScrollPane();//barra de rolagem	
 		
 	}
-	
-
 }

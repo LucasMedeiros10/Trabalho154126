@@ -2,6 +2,7 @@ package br.univel;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,10 +23,15 @@ import br.univel.classes.SerializadorImpl;
 import br.univel.classes.Venda;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
+
+import com.sun.prism.TextureMap;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.UIManager;
 import javax.swing.JMenu;
 
 public class Principal extends JFrame{
@@ -183,6 +189,7 @@ public class Principal extends JFrame{
 	}
 	
 	public Principal(){
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Sistema de Vendas");
 		
 		JPanel jp = new JPanel();  //cria painel
@@ -198,14 +205,53 @@ public class Principal extends JFrame{
 		JMenuItem mntmClientes = new JMenuItem("Clientes");
 		mnCadastros.add(mntmClientes);
 		
+		//classe anonima
+		mntmClientes.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//tela
+				PsqClientes psqClientes = new PsqClientes();		
+				psqClientes.setSize(701, 413);
+				psqClientes.setLocationRelativeTo(null); //centraliza na tela
+				psqClientes.setVisible(true);//mostra na tela
+			}
+		});			
+		
 		JMenuItem mntmProdutos = new JMenuItem("Produtos");
 		mnCadastros.add(mntmProdutos);
+		
+		//classe anonima
+		mntmProdutos.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//tela
+				PsqProdutos psqProdutos = new PsqProdutos();		
+				psqProdutos.setSize(701, 413);
+				psqProdutos.setLocationRelativeTo(null); //centraliza na tela
+				psqProdutos.setVisible(true);//mostra na tela
+			}
+		});			
 		
 		JMenu mnLanamentos = new JMenu("Lan\u00E7amentos");
 		menuBar.add(mnLanamentos);
 		
 		JMenuItem mntmVendas = new JMenuItem("Vendas");
 		mnLanamentos.add(mntmVendas);
+		
+		//classe anonima
+		mntmVendas.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//tela
+				PsqVendas psqVendas = new PsqVendas();		
+				psqVendas.setSize(701, 413);
+				psqVendas.setLocationRelativeTo(null); //centraliza na tela
+				psqVendas.setVisible(true);//mostra na tela
+			}
+		});			
 		
 		JMenu mnRelatrios = new JMenu("Relat\u00F3rios");
 		menuBar.add(mnRelatrios);
@@ -216,8 +262,22 @@ public class Principal extends JFrame{
 		JMenuItem mntmProdutosRel = new JMenuItem("Produtos");
 		mnRelatrios.add(mntmProdutosRel);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Vendas");
-		mnRelatrios.add(mntmNewMenuItem);
+		JMenuItem mntmVendasRel = new JMenuItem("Vendas");
+		mnRelatrios.add(mntmVendasRel);
+		
+		JMenu mnSair = new JMenu("Sair");
+		menuBar.add(mnSair);
+		
+		JMenuItem mntmFecharOSistema = new JMenuItem("Fechar o sistema");
+		mnSair.add(mntmFecharOSistema);
+		//classe anonima
+		mnSair.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});			
 		
 		
 		JLabel lblTitulo = new JLabel("Sistema de Vendas");
