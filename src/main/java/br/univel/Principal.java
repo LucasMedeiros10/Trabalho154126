@@ -189,7 +189,7 @@ public class Principal extends JFrame{
 	}
 	
 	public Principal(){
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Sistema de Vendas");
 		
 		JPanel jp = new JPanel();  //cria painel
@@ -271,7 +271,7 @@ public class Principal extends JFrame{
 		JMenuItem mntmFecharOSistema = new JMenuItem("Fechar o sistema");
 		mnSair.add(mntmFecharOSistema);
 		//classe anonima
-		mnSair.addActionListener(new ActionListener() {
+		mntmFecharOSistema.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {

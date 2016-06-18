@@ -9,7 +9,7 @@ public class PsqClientes extends PsqPadrao{
 			public void actionPerformed(ActionEvent e) {			
 				//tela
 				CadCliente CadCliente = new CadCliente();		
-				CadCliente.setSize(600, 600);
+				CadCliente.setSize(600, 400);
 				CadCliente.setLocationRelativeTo(null); //centraliza na tela
 				CadCliente.lblTitulo.setText("Alterar Cliente");
 				CadCliente.setVisible(true);//mostra na tela					
@@ -21,7 +21,7 @@ public class PsqClientes extends PsqPadrao{
 			public void actionPerformed(ActionEvent e) {
 				//tela
 				CadCliente CadCliente = new CadCliente();		
-				CadCliente.setSize(600, 600);
+				CadCliente.setSize(600, 400);
 				CadCliente.setLocationRelativeTo(null); //centraliza na tela
 				CadCliente.lblTitulo.setText("Inserir Cliente");
 				CadCliente.setVisible(true);//mostra na tela					
