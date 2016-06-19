@@ -13,7 +13,7 @@ public interface ExportXML<T> {
 	public boolean ExportarXml(T t , File file	);
 		
 	
-	public boolean ImportarXml (T t , File file);
+	public T ImportarXml (T t , File file);
 	
 	
 }

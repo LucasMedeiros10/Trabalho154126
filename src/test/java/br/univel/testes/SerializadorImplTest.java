@@ -22,6 +22,7 @@ import br.univel.excecoes.SerializadorException;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SerializadorImplTest {
+	static Cliente c1, c2;
 	
 	static SerializadorImpl<List<Cliente>> sCliente;
 	static SerializadorImpl<List<Produto>> sProduto;
@@ -34,6 +35,9 @@ public class SerializadorImplTest {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		c1            = new Cliente();
+		c2            = new Cliente();
+		
 		listaClientes = new ArrayList<Cliente>();
 		listaProdutos = new ArrayList<Produto>();
 		listaVendas   = new ArrayList<Venda>();
@@ -46,6 +50,8 @@ public class SerializadorImplTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		c1 			  = null;
+		c2            = null;
 		
 		listaClientes = null;
 		listaProdutos = null;
@@ -60,8 +66,30 @@ public class SerializadorImplTest {
 	@Before
 	public void setUp() throws Exception {
 
-		Cliente c1 = new Cliente(1, "Lucas", "Rua ABC", 200, "", "Pq. São Paulo", "Cascavel", "PR", "85803550", "", "");
-		Cliente c2 = new Cliente(1, "Luis", "Rua ABC", 200, "", "Neva", "Cascavel", "PR", "85803550", "", "");		
+		c1.setId(1);
+		c1.setNome("Lucas");
+		c1.setEndereco("Rua ABC");
+		c1.setNumero(200);
+		c1.setBairro("Parque São Paulo");
+		c1.setCep("85803550");
+		c1.setCelular("99999999");
+		c1.setTelefone("323323232");
+		c1.setCidade("Cascavel");
+		c1.setEstado("PR");
+		c1.setComplemento("");
+		
+		c2.setId(2);
+		c2.setNome("Luis");
+		c2.setEndereco("Rua ABC");
+		c2.setNumero(200);
+		c2.setBairro("Neva");
+		c2.setCep("85803550");
+		c2.setCelular("99999999");
+		c2.setTelefone("323323232");
+		c2.setCidade("Cascavel");
+		c2.setEstado("PR");
+		c2.setComplemento("");	
+		
 		listaClientes.add(c1);
 		listaClientes.add(c2);		
 	

@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Serializable;
 import java.io.StringWriter;
 
 import javax.xml.bind.JAXBContext;
@@ -17,58 +16,48 @@ import javax.xml.transform.stream.StreamResult;
 
 import br.univel.interfaces.ExportXML;
 
-public class ExportXmlImp<T> implements ExportXML<T> {
-
-	
+public class ExportXMLImp<T> implements ExportXML<T> {
 
 	@Override
 	public boolean ExportarXml(T t, File file) {
-		Class<?>[] vet = t.getClass().getInterfaces();
-		boolean achou = false;
 		boolean resultado = false;
 		
-		for(Class<?> c: vet){
-			if(c.equals(Serializable.class)){
-				achou = true;
-				break;
-			}			
-		}
 		StringWriter out = new StringWriter();
 		JAXBContext context = null;
 
 		try {
-			FileWriter fw = new FileWriter("");
 			context = JAXBContext.newInstance(t.getClass());
 			Marshaller marshaller = context.createMarshaller();
 			marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			marshaller.marshal(t, new StreamResult(out));
-			String xml = out.toString();
+		
+			
+			String  xml = out.toString();
+			FileWriter fw = new FileWriter(file);
 			fw.write(xml);
-			fw.close();
+			fw.close();		
 			resultado = true;
-
+			
 		} catch (PropertyException e) {
 			e.printStackTrace();
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}		
+
 		return resultado;
 	}
 			
 	
 
 	@Override
-	public boolean ImportarXml(T t, File file) {
-		Class<?>[] vet = t.getClass().getInterfaces();
-
-		boolean resultado = false;
-		File File = new File("file");
+	public T ImportarXml(T t, File file) {
+		
 		String xml = null;
 
 		try {
-			FileReader fr = new FileReader("file");
+			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
 
 			StringBuilder sb = new StringBuilder();
@@ -89,11 +78,11 @@ public class ExportXmlImp<T> implements ExportXML<T> {
 
 			t = (T) unmarshaller.unmarshal(file);
 
-			resultado = true;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return resultado;
+		return t;
 
 	}
 }

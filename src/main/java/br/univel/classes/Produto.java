@@ -3,6 +3,9 @@ package br.univel.classes;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Produto  implements Serializable{
 	
 	/**

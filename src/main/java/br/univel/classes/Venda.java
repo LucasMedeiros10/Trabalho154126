@@ -3,6 +3,9 @@ package br.univel.classes;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Venda  implements Serializable{
 	
 	/**

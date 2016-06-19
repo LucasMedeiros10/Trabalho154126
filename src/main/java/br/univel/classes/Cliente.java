@@ -2,15 +2,15 @@ package br.univel.classes;
 
 import java.io.Serializable;
 
-public class Cliente  implements Serializable{
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
+public class Cliente  implements Serializable{	
 
-	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 6188080488996261636L;
-	
 	private int id;
 	private String nome;
 	private String endereco;
@@ -21,25 +21,7 @@ public class Cliente  implements Serializable{
 	private String estado;
 	private String cep;
 	private String telefone;
-	private String celular;
-	
-	public Cliente(int id, String nome, String endereco, int numero, String complemento, String bairro, String cidade,
-			String estado, String cep, String telefone, String celular) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.endereco = endereco;
-		this.numero = numero;
-		this.complemento = complemento;
-		this.bairro = bairro;
-		this.cidade = cidade;
-		this.estado = estado;
-		this.cep = cep;
-		this.telefone = telefone;
-		this.celular = celular;
-	}
-	
-	
+	private String celular;	
 
 	public int getId() {
 		return id;
