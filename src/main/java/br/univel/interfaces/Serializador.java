@@ -17,7 +17,7 @@ public interface Serializador<T> {
 	 * @throws SerializadorException
 	 */
 	
-	public void gravar(T t, File file) throws SerializadorException;
+	public boolean gravar(T t, File file) throws SerializadorException;
 	
 	
 	/**

@@ -14,10 +14,11 @@ import br.univel.interfaces.Serializador;
 public class SerializadorImpl<T> implements Serializador<T>{
 
 	@Override
-	public void gravar(T t, File file) throws SerializadorException {
+	public boolean gravar(T t, File file) throws SerializadorException {
 		Class<?>[] vet = t.getClass().getInterfaces();
 		
 		boolean achou = false;
+		boolean resultado = false;
 		
 		for(Class<?> c: vet){
 			if(c.equals(Serializable.class)){
@@ -34,10 +35,11 @@ public class SerializadorImpl<T> implements Serializador<T>{
 			ObjectOutputStream oos = new ObjectOutputStream(fos)){
 			
 			oos.writeObject(t);
-			
+			resultado = true;
 		}catch(Exception e){
 			throw new SerializadorException(e);
 		}
+		return resultado;
 		
 	}
 
@@ -50,11 +52,11 @@ public class SerializadorImpl<T> implements Serializador<T>{
 				
 			Object object = ois.readObject();
 			
-			Class<?> clGenType = (Class<?>)((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+			//Class<?> clGenType = (Class<?>)((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 			
-			if(!object.getClass().equals(clGenType)){
-				throw new SerializadorException("Os tipos são diferentes!");
-			}
+			//if(!object.getClass().equals(clGenType)){
+				//throw new SerializadorException("Os tipos são diferentes!");
+			//}
 			
 			return (T) object;			
 		} catch (Exception e) {

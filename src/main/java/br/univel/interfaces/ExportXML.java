@@ -10,10 +10,10 @@ public interface ExportXML<T> {
 	 * 
 	 */
 	
-	public void ExportarXml(T t , File file	);
+	public boolean ExportarXml(T t , File file	);
 		
 	
-	public void ImportarXml (T t , File file);
+	public boolean ImportarXml (T t , File file);
 	
 	
 }

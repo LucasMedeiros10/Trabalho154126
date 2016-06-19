@@ -22,9 +22,10 @@ public class ExportXmlImp<T> implements ExportXML<T> {
 	
 
 	@Override
-	public void ExportarXml(T t, File file) {
+	public boolean ExportarXml(T t, File file) {
 		Class<?>[] vet = t.getClass().getInterfaces();
 		boolean achou = false;
+		boolean resultado = false;
 		
 		for(Class<?> c: vet){
 			if(c.equals(Serializable.class)){
@@ -44,7 +45,7 @@ public class ExportXmlImp<T> implements ExportXML<T> {
 			String xml = out.toString();
 			fw.write(xml);
 			fw.close();
-			System.out.println(xml);
+			resultado = true;
 
 		} catch (PropertyException e) {
 			e.printStackTrace();
@@ -53,14 +54,16 @@ public class ExportXmlImp<T> implements ExportXML<T> {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return resultado;
 	}
 			
 	
 
 	@Override
-	public void ImportarXml(T t, File file) {
+	public boolean ImportarXml(T t, File file) {
 		Class<?>[] vet = t.getClass().getInterfaces();
 
+		boolean resultado = false;
 		File File = new File("file");
 		String xml = null;
 
@@ -86,9 +89,11 @@ public class ExportXmlImp<T> implements ExportXML<T> {
 
 			t = (T) unmarshaller.unmarshal(file);
 
+			resultado = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return resultado;
 
 	}
 }
