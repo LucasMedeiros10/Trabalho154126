@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<venda>
+    <cliente>
+        <bairro>Parque São Paulo</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>Cascavel</cidade>
+        <complemento></complemento>
+        <endereco>Rua ABC</endereco>
+        <estado>PR</estado>
+        <id>1</id>
+        <nome>Lucas</nome>
+        <numero>200</numero>
+        <telefone>323323232</telefone>
+    </cliente>
+    <id>1</id>
+    <produto>
+        <descricao>Produto teste 1</descricao>
+        <id>1</id>
+        <preco>2.5</preco>
+    </produto>
+    <produto>
+        <descricao>Produto teste 2</descricao>
+        <id>2</id>
+        <preco>1.9899999999999999911182158029987476766109466552734375</preco>
+    </produto>
+</venda>

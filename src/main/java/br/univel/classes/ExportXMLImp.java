@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.StringReader;
 import java.io.StringWriter;
 
 import javax.xml.bind.JAXBContext;
@@ -71,12 +72,13 @@ public class ExportXMLImp<T> implements ExportXML<T> {
 			xml = sb.toString();
 			br.close();
 			fr.close();
+			
+			StringReader in = new StringReader(xml);
 
 			JAXBContext context = JAXBContext.newInstance(t.getClass());
-
 			Unmarshaller unmarshaller = context.createUnmarshaller();
 
-			t = (T) unmarshaller.unmarshal(file);
+			t = (T) unmarshaller.unmarshal(in);
 
 			
 		} catch (Exception e) {

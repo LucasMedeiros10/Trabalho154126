@@ -3,6 +3,7 @@ package br.univel.classes;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -31,21 +32,13 @@ public class Venda  implements Serializable{
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	
+	@XmlElement(name="produto")
 	public List<Produto> getListaProd() {
 		return listaProd;
 	}
 	public void setListaProd(List<Produto> listaProd) {
 		this.listaProd = listaProd;
 	}
-	
-	public Venda(int id, Cliente cliente, List<Produto> listaProd) {
-		super();
-		this.id = id;
-		this.cliente = cliente;
-		this.listaProd = listaProd;
-	}
-	
-	
-	
 	
 }

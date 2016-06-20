@@ -17,14 +17,6 @@ public class Produto  implements Serializable{
 	private String descricao;
 	private BigDecimal preco;
 	
-	
-	public Produto(int id, String descricao, BigDecimal preco) {
-		super();
-		this.id = id;
-		this.descricao = descricao;
-		this.preco = preco;
-	}
-	
 	public int getId() {
 		return id;
 	}

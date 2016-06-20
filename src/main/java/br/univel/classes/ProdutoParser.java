@@ -33,7 +33,10 @@ public class ProdutoParser {
 		int id  = Integer.parseInt(str.substring(0, str.indexOf(" ")));
 		String descricao = str.substring(12, str.indexOf("  US$"));			
 		BigDecimal preco = new BigDecimal(str.substring(str.indexOf("US$") + 4, str.length()).replace(".", "").replace(",", "."));
-		Produto p = new Produto(id, descricao, preco);
+		Produto p = new Produto();
+		p.setId(id);
+		p.setDescricao(descricao);
+		p.setPreco(preco);
 		return p;
 	}
 }
