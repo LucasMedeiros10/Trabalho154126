@@ -17,8 +17,12 @@ public class ArquivoReaderTest {
 	}
 	
 	@Test
-	public void testLerArquivo() {
+	public void testLerArquivoProd() {
 		assertNotNull(reader.lerArquivo("listaprodutos.txt"));
 	}
 
+	@Test
+	public void testLerArquivoCliente() {
+		assertNotNull(reader.lerArquivo("listaclientes.csv"));
+	}
 }
