@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ProdutoParser {
+public class ProdutoParser{
 
 	public List<Produto> getProduto(List<String> listaStr){
 		
