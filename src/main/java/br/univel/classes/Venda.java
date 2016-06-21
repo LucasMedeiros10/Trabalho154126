@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import br.univel.anotacoes.Coluna;
 import br.univel.anotacoes.Tabela;
+import br.univel.anotacoes.UmPraMuitos;
 
 @Tabela("vendas")
 @XmlRootElement
@@ -24,7 +25,7 @@ public class Venda  implements Serializable{
 	@Coluna(nome="id_cliente")
 	private Cliente cliente;
 	
-	@Coluna(nome="id_produto")
+	@UmPraMuitos(nomeTabela="vendas_produtos", nomeCampo="id_produto")
 	private List<Produto> listaProd;
 	
 	
