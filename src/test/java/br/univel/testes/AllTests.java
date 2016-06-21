@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ ExportXMLImplTest.class, SerializadorImplTest.class, ArquivoReaderTest.class,
-	ProdutoParserTest.class})
+	ProdutoParserTest.class, ClienteParserTest.class})
 public class AllTests {
 
 }

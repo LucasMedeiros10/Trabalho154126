@@ -28,7 +28,6 @@ public class ClienteParser {
 		
 		String[] itens = str.split(";");
 		int id             = Integer.parseInt(itens[0]);
-		System.out.println(itens[9].toString());
 		String nome        = itens[1];
 		String endereco    = itens[2];
 		int numero         = Integer.parseInt(itens[3]);
