@@ -5,6 +5,10 @@ import java.math.BigDecimal;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.univel.anotacoes.Coluna;
+import br.univel.anotacoes.Tabela;
+
+@Tabela("produtos")
 @XmlRootElement
 public class Produto  implements Serializable{
 	
@@ -13,8 +17,13 @@ public class Produto  implements Serializable{
 	 */
 	private static final long serialVersionUID = -4287610341939625920L;
 	
+	@Coluna(nome="id", pk=true)
 	private int id;
+	
+	@Coluna(nome="descricao", tamanho=60)
 	private String descricao;
+	
+	@Coluna(nome="preco")
 	private BigDecimal preco;
 	
 	public int getId() {

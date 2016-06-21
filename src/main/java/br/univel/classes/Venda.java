@@ -6,6 +6,10 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.univel.anotacoes.Coluna;
+import br.univel.anotacoes.Tabela;
+
+@Tabela("vendas")
 @XmlRootElement
 public class Venda  implements Serializable{
 	
@@ -14,9 +18,13 @@ public class Venda  implements Serializable{
 	 */
 	private static final long serialVersionUID = -3489894237623305021L;
 	
-	
+	@Coluna(nome="id", pk=true)
 	private int id;
+	
+	@Coluna(nome="id_cliente")
 	private Cliente cliente;
+	
+	@Coluna(nome="id_produto")
 	private List<Produto> listaProd;
 	
 	
