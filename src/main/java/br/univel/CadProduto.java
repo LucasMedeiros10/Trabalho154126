@@ -40,6 +40,8 @@ public class CadProduto extends JFrame{
 		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 18));
 		
 		txtID = new JTextField();
+		txtID.setEnabled(false);
+		txtID.setEditable(false);
 		txtID.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("ID");

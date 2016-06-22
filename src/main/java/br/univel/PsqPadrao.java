@@ -28,15 +28,17 @@ import java.awt.event.ActionEvent;
 
 public class PsqPadrao extends JFrame{
 	public JLabel lblTitulo;
-	public JTable tblResultados;
 	public JTextField textField;
 	public JButton btnInserir;
 	public JButton btnAlterar;
 	public JButton btnExcluir;
 	public JButton btnImportarXML;
 	public JButton btnExportarXML;
+	public JButton btnSerializar;
+	public JButton btnRestaurar;
 	public JButton btnImportarTXT;
 	public JButton btnSair;
+	public JTable  tblResultados;
 	
 	public PsqPadrao(){
 		setTitle("Pesquisa Padr\u00E3o");
@@ -47,7 +49,6 @@ public class PsqPadrao extends JFrame{
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 18));
 		
-		tblResultados = new JTable();
 		
 		btnInserir = new JButton("Inserir");
 		btnInserir.addActionListener(new ActionListener() {
@@ -79,50 +80,53 @@ public class PsqPadrao extends JFrame{
 		
 		JLabel lblPesquisa = new JLabel("Pesquisa");
 		
-		JButton btnNewButton = new JButton("Serializar");
+		btnSerializar = new JButton("Serializar");
 		
-		JButton btnNewButton_1 = new JButton("Restaurar");
+		btnRestaurar = new JButton("Restaurar");
+		
+		JScrollPane scrollPane = new JScrollPane();
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblPesquisa)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE))
-						.addComponent(tblResultados, GroupLayout.PREFERRED_SIZE, 523, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnExportarXML)
-						.addComponent(btnImportarXML)
-						.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnInserir, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton_1)
-						.addComponent(btnImportarTXT, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton))
-					.addGap(49))
+					.addComponent(lblPesquisa)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(434, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(5)
-					.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 881, Short.MAX_VALUE)
-					.addGap(5))
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+							.addGap(5)
+							.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 581, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnExportarXML)
+								.addComponent(btnImportarXML)
+								.addComponent(btnExcluir, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnSerializar)
+								.addComponent(btnRestaurar)
+								.addComponent(btnInserir, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnImportarTXT, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE))))
+					.addGap(72))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblTitulo)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+					.addGap(28)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblPesquisa))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(3)
 							.addComponent(btnInserir, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnAlterar, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
@@ -133,24 +137,27 @@ public class PsqPadrao extends JFrame{
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnExportarXML)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnNewButton)
+							.addComponent(btnSerializar)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnNewButton_1)
+							.addComponent(btnRestaurar)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnImportarTXT)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnSair))
-						.addComponent(tblResultados, GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE))
-					.addContainerGap())
+						.addComponent(scrollPane, 0, 0, Short.MAX_VALUE))
+					.addGap(11))
 		);
-		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {btnInserir, btnAlterar, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair, btnNewButton, btnNewButton_1});
-		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnInserir, btnAlterar, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair, btnNewButton, btnNewButton_1});
+		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {btnInserir, btnAlterar, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair, btnSerializar, btnRestaurar});
+		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnInserir, btnAlterar, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair, btnSerializar, btnRestaurar});
+		
+		tblResultados = new JTable();
+		scrollPane.setViewportView(tblResultados);
 		getContentPane().setLayout(groupLayout);
 
 		JPanel jp = new JPanel();  //cria painel
 		jp.setLayout(new BorderLayout()); // seta o layout
 		jp.setSize(800, 600);
-		JScrollPane jsc = new JScrollPane();//barra de rolagem	
+		
 		
 	}
 }

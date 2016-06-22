@@ -80,7 +80,7 @@ public class Principal extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				//tela
 				PsqClientes psqClientes = new PsqClientes();		
-				psqClientes.setSize(701, 413);
+				psqClientes.setSize(740, 460);
 				psqClientes.setLocationRelativeTo(null); //centraliza na tela
 				psqClientes.setVisible(true);//mostra na tela
 			}
@@ -96,7 +96,7 @@ public class Principal extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				//tela
 				PsqProdutos psqProdutos = new PsqProdutos();		
-				psqProdutos.setSize(701, 413);
+				psqProdutos.setSize(740, 460);
 				psqProdutos.setLocationRelativeTo(null); //centraliza na tela
 				psqProdutos.setVisible(true);//mostra na tela
 			}
@@ -115,7 +115,7 @@ public class Principal extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				//tela
 				PsqVendas psqVendas = new PsqVendas();		
-				psqVendas.setSize(701, 413);
+				psqVendas.setSize(740, 460);
 				psqVendas.setLocationRelativeTo(null); //centraliza na tela
 				psqVendas.setVisible(true);//mostra na tela
 			}
