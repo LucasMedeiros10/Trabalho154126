@@ -93,6 +93,10 @@ public class PsqVendas extends PsqPadrao {
 		setTitle("Vendas");
 		lblTitulo.setText("Vendas");
 		btnImportarTXT.setVisible(false);
+		
+		// $hide>>$
+		montarConsulta();
+		// $hide<<$				
 	}
 	
 	public void montarConsulta(){		

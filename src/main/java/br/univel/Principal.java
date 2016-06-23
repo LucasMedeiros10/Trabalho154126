@@ -2,33 +2,18 @@ package br.univel;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
-import br.univel.classes.ArquivoReader;
-import br.univel.classes.Cliente;
-import br.univel.classes.Produto;
-import br.univel.classes.ProdutoParser;
-import br.univel.classes.SerializadorImpl;
-import br.univel.classes.Venda;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.SwingConstants;
 
-import com.sun.prism.TextureMap;
+import br.univel.classes.Conexao;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -36,25 +21,7 @@ import javax.swing.JMenu;
 
 public class Principal extends JFrame{
 	
-	private static List<Produto> listaPrd = null;
-	private static List<Cliente> listaCliente = new ArrayList<Cliente>();
-	private static List<Venda> listaVendas = new ArrayList<Venda>();
-	
-	public static void lerTxtProdutos(){
-		
-		ArquivoReader reader = new ArquivoReader();
-		List<String> lista = reader.lerArquivo("listaprodutos.txt");
-
-		ProdutoParser parser = new ProdutoParser();
-		listaPrd = parser.getProduto(lista);		
-		
-		listaPrd.forEach(e ->{
-			System.out.println("ID: " + e.getId());
-			System.out.println("Descrição: " + e.getDescricao());
-			System.out.println("Preço: " + e.getPreco());
-			System.out.println("---------------------------------------------");
-		});		
-	}
+	public static Conexao con;	
 			
 	public Principal(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -163,6 +130,15 @@ public class Principal extends JFrame{
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				
+				con = new Conexao();
+				try {
+					con.abrirConexao();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				
 				//tela
 				Principal tp = new Principal();

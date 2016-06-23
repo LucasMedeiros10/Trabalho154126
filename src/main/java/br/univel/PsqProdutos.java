@@ -99,6 +99,10 @@ public class PsqProdutos extends PsqPadrao{
 		});
 		setTitle("Pesquisa de Produtos");
 		lblTitulo.setText("Pesquisa de Produtos");
+		
+		// $hide>>$
+		montarConsulta();
+		// $hide<<$		
 	}
 	
 	public void montarConsulta(){		

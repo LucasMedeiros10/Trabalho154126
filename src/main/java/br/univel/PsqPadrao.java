@@ -157,7 +157,6 @@ public class PsqPadrao extends JFrame{
 		JPanel jp = new JPanel();  //cria painel
 		jp.setLayout(new BorderLayout()); // seta o layout
 		jp.setSize(800, 600);
-		
-		
+				
 	}
 }

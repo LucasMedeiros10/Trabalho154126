@@ -102,6 +102,10 @@ public class PsqClientes extends PsqPadrao{
 		
 		setTitle("Pesquisa de Clientes");
 		lblTitulo.setText("Pesquisa de Clientes");	
+		
+		// $hide>>$
+		montarConsulta();
+		// $hide<<$				
 	}
 	
 
