@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<listaProdutos>
+    <produto>
+        <descricao>Produto teste 1</descricao>
+        <id>1</id>
+        <preco>2.5</preco>
+    </produto>
+    <produto>
+        <descricao>Produto teste 2</descricao>
+        <id>2</id>
+        <preco>1.9899999999999999911182158029987476766109466552734375</preco>
+    </produto>
+</listaProdutos>
