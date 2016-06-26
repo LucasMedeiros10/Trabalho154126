@@ -11,9 +11,7 @@ import br.univel.interfaces.Dao;
 
 public class DaoCliente implements Dao<Cliente, Integer> {
 
-
 	private Connection con = null;
-	
 	
 	public Connection getCon() {
 		return con;
@@ -22,7 +20,7 @@ public class DaoCliente implements Dao<Cliente, Integer> {
 	public void setCon(Connection con) {
 		this.con = con;
 	}
-
+	
 	@Override
 	public void salvar(Cliente t) {
 		SqlGenImpl gerador = new SqlGenImpl();
@@ -33,7 +31,14 @@ public class DaoCliente implements Dao<Cliente, Integer> {
 			ps.setInt(1, t.getId());
 			ps.setString(2, t.getNome());
 			ps.setString(3, t.getEndereco());
-			ps.setString(4, t.getTelefone());
+			ps.setInt(4, t.getNumero());
+			ps.setString(5, t.getComplemento());
+			ps.setString(6, t.getBairro());
+			ps.setString(7, t.getCidade());
+			ps.setString(8, t.getEstado());
+			ps.setString(9, t.getCep());
+			ps.setString(10, t.getTelefone());
+			ps.setString(11, t.getCelular());
 			
 			ps.executeUpdate();
 			ps.close();
@@ -48,6 +53,7 @@ public class DaoCliente implements Dao<Cliente, Integer> {
 	public Cliente buscar(Integer k) {
 		SqlGenImpl gerador = new SqlGenImpl();
 		Cliente c = new Cliente();
+		c.setId(0);
 				
 		try {
 
@@ -56,10 +62,18 @@ public class DaoCliente implements Dao<Cliente, Integer> {
 			ResultSet resultados = ps.executeQuery();
 			
 			while (resultados.next()) {
-				c.setId(resultados.getInt("cli_codigo"));
-				c.setNome(resultados.getString("cli_nome"));
-				c.setEndereco(resultados.getString("cli_endereco"));
-				c.setTelefone(resultados.getString("cli_fone"));
+				c.setId(resultados.getInt("id"));
+				c.setNome(resultados.getString("nome"));
+				c.setEndereco(resultados.getString("endereco"));
+				c.setNumero(resultados.getInt("numero"));
+				c.setComplemento(resultados.getString("complemento"));
+				c.setBairro(resultados.getString("bairro"));
+				c.setCidade(resultados.getString("cidade"));
+				c.setEstado(resultados.getString("estado"));
+				c.setCep(resultados.getString("cep"));
+				c.setTelefone(resultados.getString("telefone"));
+				c.setCelular(resultados.getString("celular"));
+				
 			}			
 			
 			ps.close();
@@ -81,8 +95,15 @@ public class DaoCliente implements Dao<Cliente, Integer> {
 			PreparedStatement ps = gerador.getSqlUpdateById(con, t);
 			ps.setString(1, t.getNome());
 			ps.setString(2, t.getEndereco());
-			ps.setString(3, t.getTelefone());
-			ps.setInt(5, t.getId());
+			ps.setInt(3, t.getNumero());
+			ps.setString(4, t.getComplemento());
+			ps.setString(5, t.getBairro());
+			ps.setString(6, t.getCidade());
+			ps.setString(7, t.getEstado());
+			ps.setString(8, t.getCep());
+			ps.setString(9, t.getTelefone());
+			ps.setString(10, t.getCelular());
+			ps.setInt(11, t.getId());
 			
 			ps.executeUpdate();
 			ps.close();
@@ -123,10 +144,17 @@ public class DaoCliente implements Dao<Cliente, Integer> {
 			while (resultados.next()) {
 				
 				Cliente c = new Cliente();
-				c.setId(resultados.getInt("cli_codigo"));
-				c.setNome(resultados.getString("cli_nome"));
-				c.setEndereco(resultados.getString("cli_endereco"));
-				c.setTelefone(resultados.getString("cli_fone"));
+				c.setId(resultados.getInt("id"));
+				c.setNome(resultados.getString("nome"));
+				c.setEndereco(resultados.getString("endereco"));
+				c.setNumero(resultados.getInt("numero"));
+				c.setComplemento(resultados.getString("complemento"));
+				c.setBairro(resultados.getString("bairro"));
+				c.setCidade(resultados.getString("cidade"));
+				c.setEstado(resultados.getString("estado"));
+				c.setCep(resultados.getString("cep"));
+				c.setTelefone(resultados.getString("telefone"));
+				c.setCelular(resultados.getString("celular"));
 				
 				
 				listaCliente.add(c);
@@ -157,22 +185,29 @@ public class DaoCliente implements Dao<Cliente, Integer> {
 		}			
 		
 	}
-	
-	public void apagarTabela(Cliente t){
+
+	@Override
+	public int proximoID() {
 		SqlGenImpl gerador = new SqlGenImpl();
+		int cod = 0;
 				
 		try {
-			String sql = gerador.getDropTable(con, t);	
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.executeUpdate();
+
+			PreparedStatement ps = gerador.getNextId(con, new Cliente());
+			ResultSet resultados = ps.executeQuery();
+			
+			while (resultados.next()) {
+				cod = resultados.getInt("codigo");
+			}			
+			
 			ps.close();
+			resultados.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-
-		}			
+		}				
 		
+		return cod;
 	}	
-	
 	
 }

@@ -3,6 +3,8 @@ package br.univel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.sql.SQLException;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -11,6 +13,13 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import br.univel.classes.Cliente;
+import br.univel.classes.Conexao;
+import br.univel.classes.DaoCliente;
+import br.univel.classes.DaoProduto;
+import br.univel.classes.Produto;
+
 import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
 
@@ -19,13 +28,47 @@ public class CadProduto extends JFrame{
 	public JButton btnSalvar;
 	public JButton btnCancelar;
 	public JLabel lblTitulo;
-	private JTextField txtID;
+	public JTextField txtID;
 	private JTextField txtDescricao;
+	private JFormattedTextField txtPreco;
+	private boolean editando = false;
 	
+	public boolean isEditando() {
+		return editando;
+	}
+
+	public void setEditando(boolean editando) {
+		this.editando = editando;
+	}
+
 	public CadProduto(){
 		setTitle("Cadastro de Produto");
 		
 		btnSalvar = new JButton("Salvar");
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Produto p = new Produto();
+				
+				p.setId(Integer.parseInt(txtID.getText()));
+				p.setDescricao(txtDescricao.getText());
+				p.setPreco(new BigDecimal(txtPreco.getText()));
+				
+				DaoProduto dp = new DaoProduto();
+				try {
+					dp.setCon(new Conexao().abrirConexao());
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}				
+				
+				if(isEditando()){
+					dp.atualizar(p);
+				}else{
+					dp.salvar(p);					
+				}
+				dispose();				
+			}
+		});
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
@@ -51,7 +94,7 @@ public class CadProduto extends JFrame{
 		txtDescricao = new JTextField();
 		txtDescricao.setColumns(10);
 		
-		JFormattedTextField txtPreco = new JFormattedTextField();
+		txtPreco = new JFormattedTextField();
 		
 		JLabel lblPreo = new JLabel("Pre\u00E7o");
 		groupLayout = new GroupLayout(getContentPane());
@@ -106,4 +149,21 @@ public class CadProduto extends JFrame{
 		
 		
 	}
+	
+	public void carregarDados(int codigo){
+		
+		DaoProduto dp = new DaoProduto();
+		try {
+			dp.setCon(new Conexao().abrirConexao());
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}	
+		
+		Produto p = dp.buscar(codigo);
+		
+		txtID.setText(Integer.toString(p.getId()));
+		txtDescricao.setText(p.getDescricao());
+		txtPreco.setText(p.getPreco().toString());
+	}	
 }

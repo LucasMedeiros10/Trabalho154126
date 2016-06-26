@@ -157,21 +157,29 @@ public class DaoVenda implements Dao<Cliente, Integer> {
 		}			
 		
 	}
-	
-	public void apagarTabela(Cliente t){
+
+	@Override
+	public int proximoID() {
 		SqlGenImpl gerador = new SqlGenImpl();
+		int cod = 0;
 				
 		try {
-			String sql = gerador.getDropTable(con, t);	
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.executeUpdate();
+
+			PreparedStatement ps = gerador.getNextId(con, new Cliente());
+			ResultSet resultados = ps.executeQuery();
+			
+			while (resultados.next()) {
+				cod = resultados.getInt("codigo");
+			}			
+			
 			ps.close();
+			resultados.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-
-		}			
+		}				
 		
+		return cod;
 	}	
 	
 	

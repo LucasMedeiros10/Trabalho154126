@@ -21,14 +21,17 @@ import javax.swing.JCheckBoxMenuItem;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ListSelectionModel;
 import javax.swing.JTextField;
 import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class PsqPadrao extends JFrame{
 	public JLabel lblTitulo;
-	public JTextField textField;
+	public JTextField txtPesquisa;
 	public JButton btnInserir;
 	public JButton btnAlterar;
 	public JButton btnExcluir;
@@ -38,6 +41,7 @@ public class PsqPadrao extends JFrame{
 	public JButton btnRestaurar;
 	public JButton btnImportarTXT;
 	public JButton btnSair;
+	public JButton btnAtualizar;
 	public JTable  tblResultados;
 	
 	public PsqPadrao(){
@@ -75,8 +79,8 @@ public class PsqPadrao extends JFrame{
 			}
 		});
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		txtPesquisa = new JTextField();
+		txtPesquisa.setColumns(10);
 		
 		JLabel lblPesquisa = new JLabel("Pesquisa");
 		
@@ -85,23 +89,26 @@ public class PsqPadrao extends JFrame{
 		btnRestaurar = new JButton("Restaurar");
 		
 		JScrollPane scrollPane = new JScrollPane();
+		
+		btnAtualizar = new JButton("Atualizar");
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblPesquisa)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(434, Short.MAX_VALUE))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(5)
 							.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 581, GroupLayout.PREFERRED_SIZE)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(lblPesquisa)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(txtPesquisa, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(btnAtualizar))
+								.addComponent(scrollPane, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 581, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addComponent(btnExportarXML)
@@ -113,7 +120,7 @@ public class PsqPadrao extends JFrame{
 								.addComponent(btnInserir, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
 								.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
 								.addComponent(btnImportarTXT, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE))))
-					.addGap(72))
+					.addContainerGap(72, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -122,7 +129,9 @@ public class PsqPadrao extends JFrame{
 					.addComponent(lblTitulo)
 					.addGap(28)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+							.addComponent(txtPesquisa, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(btnAtualizar))
 						.addComponent(lblPesquisa))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
@@ -151,6 +160,7 @@ public class PsqPadrao extends JFrame{
 		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnInserir, btnAlterar, btnExcluir, btnImportarXML, btnExportarXML, btnImportarTXT, btnSair, btnSerializar, btnRestaurar});
 		
 		tblResultados = new JTable();
+		tblResultados.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setViewportView(tblResultados);
 		getContentPane().setLayout(groupLayout);
 

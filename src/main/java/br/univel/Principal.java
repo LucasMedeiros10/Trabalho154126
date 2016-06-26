@@ -20,9 +20,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 
 public class Principal extends JFrame{
-	
-	public static Conexao con;	
-			
+				
 	public Principal(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Sistema de Vendas");
@@ -46,7 +44,7 @@ public class Principal extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//tela
-				PsqClientes psqClientes = new PsqClientes();		
+				PsqClientes psqClientes = new PsqClientes();
 				psqClientes.setSize(740, 460);
 				psqClientes.setLocationRelativeTo(null); //centraliza na tela
 				psqClientes.setVisible(true);//mostra na tela
@@ -129,16 +127,7 @@ public class Principal extends JFrame{
 	public static void main(String[] args) {
 		
 		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				
-				con = new Conexao();
-				try {
-					con.abrirConexao();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
+			public void run() {	
 				
 				//tela
 				Principal tp = new Principal();

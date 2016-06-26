@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.univel.anotacoes.Coluna;
+import br.univel.anotacoes.Serial;
 import br.univel.anotacoes.Tabela;
 
 @Tabela("produtos")
@@ -15,6 +16,7 @@ public class Produto  implements Serializable{
 	/**
 	 * 
 	 */
+	@Serial
 	private static final long serialVersionUID = -4287610341939625920L;
 	
 	@Coluna(nome="id", pk=true)

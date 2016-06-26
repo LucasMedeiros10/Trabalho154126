@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <listaClientes>
     <cliente>
+        <bairro></bairro>
+        <celular></celular>
+        <cep></cep>
+        <cidade></cidade>
+        <complemento></complemento>
+        <endereco></endereco>
+        <estado></estado>
+        <id>1</id>
+        <nome>teste</nome>
+        <numero>2</numero>
+        <telefone></telefone>
+    </cliente>
+    <cliente>
         <bairro>BAIRRO TESTE</bairro>
         <celular>99999999</celular>
         <cep>85803550</cep>
         <cidade>CASCAVEL</cidade>
         <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
+        <endereco>AVENIDA GRALHA AZUL</endereco>
         <estado>PR</estado>
         <id>4</id>
-        <nome>LAZARO ALVES DOS SANTOS</nome>
+        <nome>LAZARO ALVES</nome>
         <numero>200</numero>
         <telefone>99999999</telefone>
     </cliente>
@@ -23,19 +36,6 @@
         <estado>PR</estado>
         <id>5</id>
         <nome>CHICO - ALTAMIR FRANCISCO LENCINA SILVA</nome>
-        <numero>200</numero>
-        <telefone>99999999</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>10</id>
-        <nome>SYLENNE - MARIA  SYLENNE DE SOUZA</nome>
         <numero>200</numero>
         <telefone>99999999</telefone>
     </cliente>
@@ -64,6 +64,45 @@
         <nome>GODOI - ODACIR GODOI</nome>
         <numero>200</numero>
         <telefone>(45)3228-2952</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>8</id>
+        <nome>GETULIO - PEDRO GETULIO SAIBEL</nome>
+        <numero>200</numero>
+        <telefone>3228-33-42</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>(45)9908-2902</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>9</id>
+        <nome>DIENNE ALVES PEREIRA DE ARAUJO</nome>
+        <numero>200</numero>
+        <telefone>99999999</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>10</id>
+        <nome>SYLENNE - MARIA  SYLENNE DE SOUZA</nome>
+        <numero>200</numero>
+        <telefone>99999999</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -125,21 +164,21 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>8</id>
-        <nome>GETULIO - PEDRO GETULIO SAIBEL</nome>
+        <id>16</id>
+        <nome>MARIA JOSÉ DOS SANTOS RAMOS</nome>
         <numero>200</numero>
-        <telefone>3228-33-42</telefone>
+        <telefone>99999999</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
-        <celular>(45)9908-2902</celular>
+        <celular>99999999</celular>
         <cep>85803550</cep>
         <cidade>CASCAVEL</cidade>
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>9</id>
-        <nome>DIENNE ALVES PEREIRA DE ARAUJO</nome>
+        <id>17</id>
+        <nome>TERESINHA MACHADO</nome>
         <numero>200</numero>
         <telefone>99999999</telefone>
     </cliente>
@@ -177,10 +216,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>16</id>
-        <nome>MARIA JOSÉ DOS SANTOS RAMOS</nome>
+        <id>20</id>
+        <nome>MARINA ROSA</nome>
         <numero>200</numero>
-        <telefone>99999999</telefone>
+        <telefone>99322992</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -203,36 +242,36 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
+        <id>23</id>
+        <nome>CLEIDE SILVERIO MAYER</nome>
+        <numero>200</numero>
+        <telefone>98162779</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>24</id>
+        <nome>ANAIR - ALTAIR TERESINHA NONEMACHER DE ALMEIDA</nome>
+        <numero>200</numero>
+        <telefone>32284990</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
         <id>25</id>
         <nome>SIDNEY PEREIRA SALES</nome>
         <numero>200</numero>
         <telefone>(45)3228-2355</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>17</id>
-        <nome>TERESINHA MACHADO</nome>
-        <numero>200</numero>
-        <telefone>99999999</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>20</id>
-        <nome>MARINA ROSA</nome>
-        <numero>200</numero>
-        <telefone>99322992</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -294,36 +333,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>23</id>
-        <nome>CLEIDE SILVERIO MAYER</nome>
+        <id>32</id>
+        <nome>JOSE MACHADO DA SILVA</nome>
         <numero>200</numero>
-        <telefone>98162779</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>150</id>
-        <nome>VILMA SELMA DE COUTO</nome>
-        <numero>200</numero>
-        <telefone>32282146</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>39</id>
-        <nome>NAIR DA SILVA LIMA</nome>
-        <numero>200</numero>
-        <telefone>32285472</telefone>
+        <telefone>99999999</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -346,21 +359,8 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>24</id>
-        <nome>ANAIR - ALTAIR TERESINHA NONEMACHER DE ALMEIDA</nome>
-        <numero>200</numero>
-        <telefone>32284990</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>32</id>
-        <nome>JOSE MACHADO DA SILVA</nome>
+        <id>34</id>
+        <nome>PAULISTA - EROTIDES DE ASSIS</nome>
         <numero>200</numero>
         <telefone>99999999</telefone>
     </cliente>
@@ -385,23 +385,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>40</id>
-        <nome>ADRIANA  STOCBERL MONTEIRO - BILU</nome>
+        <id>36</id>
+        <nome>HELENA MILA DA SILVA</nome>
         <numero>200</numero>
-        <telefone>84171877</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>34</id>
-        <nome>PAULISTA - EROTIDES DE ASSIS</nome>
-        <numero>200</numero>
-        <telefone>99999999</telefone>
+        <telefone>32284999</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -424,10 +411,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>42</id>
-        <nome>JOÃO FRANCO FILHO</nome>
+        <id>39</id>
+        <nome>NAIR DA SILVA LIMA</nome>
         <numero>200</numero>
-        <telefone>99206255</telefone>
+        <telefone>32285472</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -437,10 +424,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>46</id>
-        <nome>MARIA APARECIDA GONSALVEZ</nome>
+        <id>40</id>
+        <nome>ADRIANA  STOCBERL MONTEIRO - BILU</nome>
         <numero>200</numero>
-        <telefone>99999999</telefone>
+        <telefone>84171877</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -454,6 +441,71 @@
         <nome>EDSON KIYOSHI YAMASAKI</nome>
         <numero>200</numero>
         <telefone>99517776</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>42</id>
+        <nome>JOÃO FRANCO FILHO</nome>
+        <numero>200</numero>
+        <telefone>99206255</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99652626</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>43</id>
+        <nome>JOSE QUEVEDO - JOSÉ ALVANIR QUEVEDO DE OLIVEIRA</nome>
+        <numero>200</numero>
+        <telefone>99999999</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>44</id>
+        <nome>JORGE PEDRO GONSALVES</nome>
+        <numero>200</numero>
+        <telefone>99023341</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>91375806</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>45</id>
+        <nome>ELIAS  RUFINO SAMPAIO</nome>
+        <numero>200</numero>
+        <telefone>453228-2659</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>46</id>
+        <nome>MARIA APARECIDA GONSALVEZ</nome>
+        <numero>200</numero>
+        <telefone>99999999</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -489,36 +541,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>36</id>
-        <nome>HELENA MILA DA SILVA</nome>
-        <numero>200</numero>
-        <telefone>32284999</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99652626</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>43</id>
-        <nome>JOSE QUEVEDO - JOSÉ ALVANIR QUEVEDO DE OLIVEIRA</nome>
+        <id>49</id>
+        <nome>MOZAR - MARCIANO LOPES DOS SANTOS</nome>
         <numero>200</numero>
         <telefone>99999999</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85804380</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>55</id>
-        <nome>ELIZETE ADRIANE DUARTE</nome>
-        <numero>200</numero>
-        <telefone>30353817</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -532,6 +558,45 @@
         <nome>ARQUIMEDES MAYER</nome>
         <numero>200</numero>
         <telefone>99999999</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>51</id>
+        <nome>MARIA  NAGIDE SANTOS</nome>
+        <numero>200</numero>
+        <telefone>33268015</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85804240</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>52</id>
+        <nome>PEDRO  E ELIANE ALVES</nome>
+        <numero>200</numero>
+        <telefone>32283537</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85804380</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>55</id>
+        <nome>ELIZETE ADRIANE DUARTE</nome>
+        <numero>200</numero>
+        <telefone>30353817</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -554,10 +619,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>49</id>
-        <nome>MOZAR - MARCIANO LOPES DOS SANTOS</nome>
+        <id>57</id>
+        <nome>SANDRA BEATRIZ DESTRO SILVA</nome>
         <numero>200</numero>
-        <telefone>99999999</telefone>
+        <telefone>4532262756</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -593,10 +658,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>51</id>
-        <nome>MARIA  NAGIDE SANTOS</nome>
+        <id>60</id>
+        <nome>ROSANGELA  ALMEIDA - VALDECIR DE ALMEIDA</nome>
         <numero>200</numero>
-        <telefone>33268015</telefone>
+        <telefone>32284817</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -619,101 +684,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>64</id>
-        <nome>IRACEMA DA SILVA MILA</nome>
+        <id>62</id>
+        <nome>ACILES DE ALMEIDA</nome>
         <numero>200</numero>
-        <telefone>99278545</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>91375806</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>45</id>
-        <nome>ELIAS  RUFINO SAMPAIO</nome>
-        <numero>200</numero>
-        <telefone>453228-2659</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>44</id>
-        <nome>JORGE PEDRO GONSALVES</nome>
-        <numero>200</numero>
-        <telefone>99023341</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85804240</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>52</id>
-        <nome>PEDRO  E ELIANE ALVES</nome>
-        <numero>200</numero>
-        <telefone>32283537</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>60</id>
-        <nome>ROSANGELA  ALMEIDA - VALDECIR DE ALMEIDA</nome>
-        <numero>200</numero>
-        <telefone>32284817</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99105965</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>69</id>
-        <nome>SERGIO GALVAM</nome>
-        <numero>200</numero>
-        <telefone>30381862</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85804260</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>76</id>
-        <nome>DIRCE MARIN</nome>
-        <numero>200</numero>
-        <telefone>99999999</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>57</id>
-        <nome>SANDRA BEATRIZ DESTRO SILVA</nome>
-        <numero>200</numero>
-        <telefone>4532262756</telefone>
+        <telefone>32282227</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -736,10 +710,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>62</id>
-        <nome>ACILES DE ALMEIDA</nome>
+        <id>64</id>
+        <nome>IRACEMA DA SILVA MILA</nome>
         <numero>200</numero>
-        <telefone>32282227</telefone>
+        <telefone>99278545</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -753,6 +727,19 @@
         <nome>ELZA FATIMA DE SOUZA  SILVA</nome>
         <numero>200</numero>
         <telefone>32285221</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>91462595</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>66</id>
+        <nome>CLAUDETE ALVES DOS SANTOS</nome>
+        <numero>200</numero>
+        <telefone>33268015</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -782,29 +769,16 @@
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
-        <celular>98153304</celular>
+        <celular>99105965</celular>
         <cep>85803550</cep>
         <cidade>CASCAVEL</cidade>
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>78</id>
-        <nome>LENI ALVES DE LIMA SANTOS</nome>
+        <id>69</id>
+        <nome>SERGIO GALVAM</nome>
         <numero>200</numero>
-        <telefone>99999999</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>81</id>
-        <nome>JOSÉ VALDEMARDE OLIVEIRA</nome>
-        <numero>200</numero>
-        <telefone>33261369</telefone>
+        <telefone>30381862</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -821,45 +795,6 @@
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
-        <celular>91462595</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>66</id>
-        <nome>CLAUDETE ALVES DOS SANTOS</nome>
-        <numero>200</numero>
-        <telefone>33268015</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99747059</celular>
-        <cep>85804220</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>82</id>
-        <nome>ORIVAL RAMALHO</nome>
-        <numero>200</numero>
-        <telefone>33272485</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>85</id>
-        <nome>ELIZEUMA SUTO</nome>
-        <numero>200</numero>
-        <telefone>32286627</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
         <celular>91228097</celular>
         <cep>85803550</cep>
         <cidade>CASCAVEL</cidade>
@@ -873,45 +808,6 @@
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>79</id>
-        <nome>AGENOR FERNANDES</nome>
-        <numero>200</numero>
-        <telefone>4532284551</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>91</id>
-        <nome>FLORILNDA  AGOSTINETE ROSA MENDES</nome>
-        <numero>200</numero>
-        <telefone>32260817</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>80</id>
-        <nome>LUCIA HELENA PEREIRA DE ARAUJO</nome>
-        <numero>200</numero>
-        <telefone>3097-0418/</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
         <celular>99813862</celular>
         <cep>85803550</cep>
         <cidade>CASCAVEL</cidade>
@@ -920,136 +816,6 @@
         <estado>PR</estado>
         <id>72</id>
         <nome>MAX BAUER VIANA LEITE</nome>
-        <numero>200</numero>
-        <telefone>99999999</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99553794</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>95</id>
-        <nome>JOSE BENEDITO DE SOUZA RINALDI</nome>
-        <numero>200</numero>
-        <telefone>33069821</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99537227</celular>
-        <cep>85803125</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>97</id>
-        <nome>BUENO - JOAO BATISTA BUENO</nome>
-        <numero>200</numero>
-        <telefone>33247196</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99346481</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>98</id>
-        <nome>RUBENS  BARROSO</nome>
-        <numero>200</numero>
-        <telefone>30383041</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>98072128</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>77</id>
-        <nome>MARILDA  APARECIDA MARQUES</nome>
-        <numero>200</numero>
-        <telefone>99999999</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>88</id>
-        <nome>VALDEZ FRANCISCO  DA COSTA</nome>
-        <numero>200</numero>
-        <telefone>91383989</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>93</id>
-        <nome>LESSINE APARECIDA DE SOUZA RINALDI</nome>
-        <numero>200</numero>
-        <telefone>98210696</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>84</id>
-        <nome>BIA - FRANCISCA BEATRIZ</nome>
-        <numero>200</numero>
-        <telefone>32284026</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99662079</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>106</id>
-        <nome>ANITA HUTT</nome>
-        <numero>200</numero>
-        <telefone>99999999</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99980814</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>107</id>
-        <nome>ELI - MARCIA CARVALHO GARRIDO DE MATOS</nome>
-        <numero>200</numero>
-        <telefone>99999999</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>102</id>
-        <nome>MARIA HONEIDA  MARQUES</nome>
         <numero>200</numero>
         <telefone>99999999</telefone>
     </cliente>
@@ -1095,6 +861,136 @@
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
         <celular>99999999</celular>
+        <cep>85804260</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>76</id>
+        <nome>DIRCE MARIN</nome>
+        <numero>200</numero>
+        <telefone>99999999</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>98072128</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>77</id>
+        <nome>MARILDA  APARECIDA MARQUES</nome>
+        <numero>200</numero>
+        <telefone>99999999</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>98153304</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>78</id>
+        <nome>LENI ALVES DE LIMA SANTOS</nome>
+        <numero>200</numero>
+        <telefone>99999999</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>79</id>
+        <nome>AGENOR FERNANDES</nome>
+        <numero>200</numero>
+        <telefone>4532284551</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>80</id>
+        <nome>LUCIA HELENA PEREIRA DE ARAUJO</nome>
+        <numero>200</numero>
+        <telefone>3097-0418/</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>81</id>
+        <nome>JOSÉ VALDEMARDE OLIVEIRA</nome>
+        <numero>200</numero>
+        <telefone>33261369</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99747059</celular>
+        <cep>85804220</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>82</id>
+        <nome>ORIVAL RAMALHO</nome>
+        <numero>200</numero>
+        <telefone>33272485</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>83</id>
+        <nome>JOÃO MANSONI</nome>
+        <numero>200</numero>
+        <telefone>98060951</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>84</id>
+        <nome>BIA - FRANCISCA BEATRIZ</nome>
+        <numero>200</numero>
+        <telefone>32284026</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>85</id>
+        <nome>ELIZEUMA SUTO</nome>
+        <numero>200</numero>
+        <telefone>32286627</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
         <cep>85803550</cep>
         <cidade>CASCAVEL</cidade>
         <complemento>próximo a prefeitura</complemento>
@@ -1113,10 +1009,101 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>83</id>
-        <nome>JOÃO MANSONI</nome>
+        <id>88</id>
+        <nome>VALDEZ FRANCISCO  DA COSTA</nome>
         <numero>200</numero>
-        <telefone>98060951</telefone>
+        <telefone>91383989</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>91</id>
+        <nome>FLORILNDA  AGOSTINETE ROSA MENDES</nome>
+        <numero>200</numero>
+        <telefone>32260817</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99047355</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>92</id>
+        <nome>ALUIZIO - RAFAEL TERNOPOLSKI</nome>
+        <numero>200</numero>
+        <telefone>45322608517</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>93</id>
+        <nome>LESSINE APARECIDA DE SOUZA RINALDI</nome>
+        <numero>200</numero>
+        <telefone>98210696</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99553794</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>95</id>
+        <nome>JOSE BENEDITO DE SOUZA RINALDI</nome>
+        <numero>200</numero>
+        <telefone>33069821</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99537227</celular>
+        <cep>85803125</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>97</id>
+        <nome>BUENO - JOAO BATISTA BUENO</nome>
+        <numero>200</numero>
+        <telefone>33247196</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99346481</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>98</id>
+        <nome>RUBENS  BARROSO</nome>
+        <numero>200</numero>
+        <telefone>30383041</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>99</id>
+        <nome>GILMAR GERKE</nome>
+        <numero>200</numero>
+        <telefone>99342834</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -1152,23 +1139,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>99</id>
-        <nome>GILMAR GERKE</nome>
+        <id>102</id>
+        <nome>MARIA HONEIDA  MARQUES</nome>
         <numero>200</numero>
-        <telefone>99342834</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>145</id>
-        <nome>VALDECIR PRIGOLI</nome>
-        <numero>200</numero>
-        <telefone>99117947</telefone>
+        <telefone>99999999</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -1185,19 +1159,6 @@
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
-        <celular>99047355</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>92</id>
-        <nome>ALUIZIO - RAFAEL TERNOPOLSKI</nome>
-        <numero>200</numero>
-        <telefone>45322608517</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
         <celular>98347717</celular>
         <cep>85803550</cep>
         <cidade>CASCAVEL</cidade>
@@ -1208,6 +1169,32 @@
         <nome>JHONATAN DEAGOSTINI DA ROCHA</nome>
         <numero>200</numero>
         <telefone>32282936</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99662079</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>106</id>
+        <nome>ANITA HUTT</nome>
+        <numero>200</numero>
+        <telefone>99999999</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99980814</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>107</id>
+        <nome>ELI - MARCIA CARVALHO GARRIDO DE MATOS</nome>
+        <numero>200</numero>
+        <telefone>99999999</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -1354,19 +1341,6 @@
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
-        <celular>99153461</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
-        <id>121</id>
-        <nome>ADRIANA DE SOUZA  GONSALVES</nome>
-        <numero>200</numero>
-        <telefone>33265237</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
         <celular>99999999</celular>
         <cep>85803550</cep>
         <cidade>CASCAVEL</cidade>
@@ -1377,6 +1351,19 @@
         <nome>GENTIL DAVID TEIXEIRA</nome>
         <numero>200</numero>
         <telefone>99999999</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99153461</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>121</id>
+        <nome>ADRIANA DE SOUZA  GONSALVES</nome>
+        <numero>200</numero>
+        <telefone>33265237</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -1412,19 +1399,6 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>126</id>
-        <nome>JACIR ALVES</nome>
-        <numero>200</numero>
-        <telefone>99999999</telefone>
-    </cliente>
-    <cliente>
-        <bairro>BAIRRO TESTE</bairro>
-        <celular>99999999</celular>
-        <cep>85803550</cep>
-        <cidade>CASCAVEL</cidade>
-        <complemento>próximo a prefeitura</complemento>
-        <endereco>RUA TESTE</endereco>
-        <estado>PR</estado>
         <id>124</id>
         <nome>ISABEL LOJA -ISABEL DIAS LOPES MATIAZI</nome>
         <numero>200</numero>
@@ -1451,10 +1425,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>143</id>
-        <nome>JOÃO MARIA LOPES</nome>
+        <id>126</id>
+        <nome>JACIR ALVES</nome>
         <numero>200</numero>
-        <telefone>99819218</telefone>
+        <telefone>99999999</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -1477,10 +1451,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>129</id>
-        <nome>GUIDINERI SILVA</nome>
+        <id>128</id>
+        <nome>VANESSA COSTA</nome>
         <numero>200</numero>
-        <telefone>98498126</telefone>
+        <telefone>99999999</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -1490,10 +1464,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>128</id>
-        <nome>VANESSA COSTA</nome>
+        <id>129</id>
+        <nome>GUIDINERI SILVA</nome>
         <numero>200</numero>
-        <telefone>99999999</telefone>
+        <telefone>98498126</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -1549,6 +1523,19 @@
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>134</id>
+        <nome>GENILDO ANTONIO DE ARAGÃO</nome>
+        <numero>200</numero>
+        <telefone>99130420</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
         <celular>4598038309</celular>
         <cep>85803550</cep>
         <cidade>CASCAVEL</cidade>
@@ -1568,10 +1555,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>134</id>
-        <nome>GENILDO ANTONIO DE ARAGÃO</nome>
+        <id>136</id>
+        <nome>MARIA DE LURDES SALUSTIANO</nome>
         <numero>200</numero>
-        <telefone>99130420</telefone>
+        <telefone>99999999</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -1646,10 +1633,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>136</id>
-        <nome>MARIA DE LURDES SALUSTIANO</nome>
+        <id>142</id>
+        <nome>MARCOS GARCIA ROCHA</nome>
         <numero>200</numero>
-        <telefone>99999999</telefone>
+        <telefone>99404904</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -1659,10 +1646,10 @@
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>142</id>
-        <nome>MARCOS GARCIA ROCHA</nome>
+        <id>143</id>
+        <nome>JOÃO MARIA LOPES</nome>
         <numero>200</numero>
-        <telefone>99404904</telefone>
+        <telefone>99819218</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -1679,16 +1666,16 @@
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
-        <celular>98621732</celular>
-        <cep>85804550</cep>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
         <cidade>CASCAVEL</cidade>
         <complemento>próximo a prefeitura</complemento>
         <endereco>RUA TESTE</endereco>
         <estado>PR</estado>
-        <id>148</id>
-        <nome>CRISTIANE DO PRADO SILVANO</nome>
+        <id>145</id>
+        <nome>VALDECIR PRIGOLI</nome>
         <numero>200</numero>
-        <telefone>32282936</telefone>
+        <telefone>99117947</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -1718,6 +1705,19 @@
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
+        <celular>98621732</celular>
+        <cep>85804550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>148</id>
+        <nome>CRISTIANE DO PRADO SILVANO</nome>
+        <numero>200</numero>
+        <telefone>32282936</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
         <celular>98400505</celular>
         <cep>85803550</cep>
         <cidade>CASCAVEL</cidade>
@@ -1728,6 +1728,19 @@
         <nome>NEUSA FRANCISCA DE SOUZA</nome>
         <numero>200</numero>
         <telefone>9838-8524</telefone>
+    </cliente>
+    <cliente>
+        <bairro>BAIRRO TESTE</bairro>
+        <celular>99999999</celular>
+        <cep>85803550</cep>
+        <cidade>CASCAVEL</cidade>
+        <complemento>próximo a prefeitura</complemento>
+        <endereco>RUA TESTE</endereco>
+        <estado>PR</estado>
+        <id>150</id>
+        <nome>VILMA SELMA DE COUTO</nome>
+        <numero>200</numero>
+        <telefone>32282146</telefone>
     </cliente>
     <cliente>
         <bairro>BAIRRO TESTE</bairro>
@@ -1767,5 +1780,44 @@
         <nome>VALDIR ADRIANO  DA SILVA</nome>
         <numero>200</numero>
         <telefone>98331962</telefone>
+    </cliente>
+    <cliente>
+        <bairro></bairro>
+        <celular></celular>
+        <cep></cep>
+        <cidade></cidade>
+        <complemento></complemento>
+        <endereco></endereco>
+        <estado></estado>
+        <id>154</id>
+        <nome>LUCAS MEDEIROS</nome>
+        <numero>0</numero>
+        <telefone></telefone>
+    </cliente>
+    <cliente>
+        <bairro></bairro>
+        <celular></celular>
+        <cep></cep>
+        <cidade></cidade>
+        <complemento></complemento>
+        <endereco></endereco>
+        <estado></estado>
+        <id>155</id>
+        <nome>JEFFERSON MEDEIROS</nome>
+        <numero>1</numero>
+        <telefone></telefone>
+    </cliente>
+    <cliente>
+        <bairro></bairro>
+        <celular></celular>
+        <cep></cep>
+        <cidade></cidade>
+        <complemento></complemento>
+        <endereco></endereco>
+        <estado></estado>
+        <id>156</id>
+        <nome>MARLENA MEDEIROS</nome>
+        <numero>200</numero>
+        <telefone></telefone>
     </cliente>
 </listaClientes>

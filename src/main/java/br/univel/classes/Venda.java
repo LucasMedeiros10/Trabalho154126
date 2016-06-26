@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.univel.anotacoes.Coluna;
+import br.univel.anotacoes.Serial;
 import br.univel.anotacoes.Tabela;
 import br.univel.anotacoes.UmPraMuitos;
 
@@ -17,6 +18,7 @@ public class Venda  implements Serializable{
 	/**
 	 * 
 	 */
+	@Serial
 	private static final long serialVersionUID = -3489894237623305021L;
 	
 	@Coluna(nome="id", pk=true)

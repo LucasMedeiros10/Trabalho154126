@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.univel.anotacoes.Coluna;
+import br.univel.anotacoes.Serial;
 import br.univel.anotacoes.Tabela;
 
 @Tabela("clientes")
@@ -14,6 +15,7 @@ public class Cliente  implements Serializable{
 	/**
 	 * 
 	 */
+	@Serial
 	private static final long serialVersionUID = 6188080488996261636L;
 	
 	@Coluna(nome="id", pk=true)	
