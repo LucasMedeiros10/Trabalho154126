@@ -16,6 +16,7 @@ import org.junit.runners.MethodSorters;
 
 import br.univel.classes.Cliente;
 import br.univel.classes.ExportXMLImp;
+import br.univel.classes.ItemVenda;
 import br.univel.classes.ListaClientes;
 import br.univel.classes.ListaProdutos;
 import br.univel.classes.ListaVendas;
@@ -111,13 +112,26 @@ public class ExportXMLImplTest {
 		listaProdutos.add(p2);	
 		lp.setListaProd(listaProdutos);
 		
+	
+		ItemVenda iv1 = new ItemVenda();
+		iv1.setP(p1);
+		iv1.setQtde(new BigDecimal(1));
+		
+		ItemVenda iv2 = new ItemVenda();
+		iv2.setP(p2);
+		iv2.setQtde(new BigDecimal(1));
+		
+		List<ItemVenda> listaitens = new ArrayList<ItemVenda>();
+		
+		Venda v1   = new Venda();
 		v1.setId(1);
 		v1.setCliente(c1);
-		v1.setListaProd(listaProdutos);
+		v1.setItens(listaitens);
 		
+		Venda v2   = new Venda();
 		v2.setId(2);
 		v2.setCliente(c2);
-		v2.setListaProd(listaProdutos);		
+		v2.setItens(listaitens);		
 
 		listaVendas.add(v1);
 		listaVendas.add(v2);	

@@ -15,16 +15,6 @@
             <telefone>323323232</telefone>
         </cliente>
         <id>1</id>
-        <produto>
-            <descricao>Produto teste 1</descricao>
-            <id>1</id>
-            <preco>2.5</preco>
-        </produto>
-        <produto>
-            <descricao>Produto teste 2</descricao>
-            <id>2</id>
-            <preco>1.9899999999999999911182158029987476766109466552734375</preco>
-        </produto>
     </venda>
     <venda>
         <cliente>
@@ -41,15 +31,5 @@
             <telefone>323323232</telefone>
         </cliente>
         <id>2</id>
-        <produto>
-            <descricao>Produto teste 1</descricao>
-            <id>1</id>
-            <preco>2.5</preco>
-        </produto>
-        <produto>
-            <descricao>Produto teste 2</descricao>
-            <id>2</id>
-            <preco>1.9899999999999999911182158029987476766109466552734375</preco>
-        </produto>
     </venda>
 </listaVendas>

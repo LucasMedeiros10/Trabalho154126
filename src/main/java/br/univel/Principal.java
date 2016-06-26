@@ -14,10 +14,18 @@ import java.sql.SQLException;
 import javax.swing.SwingConstants;
 
 import br.univel.classes.Conexao;
+import br.univel.classes.DaoCliente;
+import br.univel.relatorios.ClienteJRDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Principal extends JFrame{
 				
@@ -90,6 +98,20 @@ public class Principal extends JFrame{
 		menuBar.add(mnRelatrios);
 		
 		JMenuItem mntmClientesRel = new JMenuItem("Clientes");
+		//classe anonima
+		mntmClientesRel.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					imprimirRelClientes();
+				} catch (JRException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		
 		mnRelatrios.add(mntmClientesRel);
 		
 		JMenuItem mntmProdutosRel = new JMenuItem("Produtos");
@@ -138,6 +160,29 @@ public class Principal extends JFrame{
 		});
 	}
 
+	private void imprimirRelClientes() throws JRException{
+		String arq = "cliente_report.jasper";
+		
+		DaoCliente dao = new DaoCliente();
+		try {
+			dao.setCon(new Conexao().abrirConexao());
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		ClienteJRDataSource ds = new ClienteJRDataSource(dao.listarTodos());
+
+
+		JasperPrint jp = JasperFillManager.fillReport(arq, null, ds);
+
+		JasperViewer jasperViewer = new JasperViewer(jp);
+
+		jasperViewer.setBounds(50, 50, 320, 240);
+		jasperViewer.setLocationRelativeTo(null);
+		jasperViewer.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+		jasperViewer.setVisible(true);		
+	}
 	
 
 }

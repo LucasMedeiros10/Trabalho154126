@@ -28,9 +28,15 @@ public class Venda  implements Serializable{
 	private Cliente cliente;
 	
 	@UmPraMuitos(nomeTabela="vendas_produtos", nomeCampo="id_produto")
-	private List<Produto> listaProd;
+	private List<ItemVenda> itens;
 	
 	
+	public List<ItemVenda> getItens() {
+		return itens;
+	}
+	public void setItens(List<ItemVenda> itens) {
+		this.itens = itens;
+	}
 	public int getId() {
 		return id;
 	}
@@ -43,13 +49,6 @@ public class Venda  implements Serializable{
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
-	@XmlElement(name="produto")
-	public List<Produto> getListaProd() {
-		return listaProd;
-	}
-	public void setListaProd(List<Produto> listaProd) {
-		this.listaProd = listaProd;
-	}
+
 	
 }

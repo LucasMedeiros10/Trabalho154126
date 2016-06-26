@@ -50,10 +50,6 @@ public class ModeloVenda extends AbstractTableModel {
 		case 2:			
 			BigDecimal total = new BigDecimal(0);
 			
-			for(Produto item : v.getListaProd()){
-				total.add(item.getPreco());				
-			}
-			
 			return total;
 		default:
 			return "erro";
