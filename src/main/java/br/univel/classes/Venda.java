@@ -27,7 +27,7 @@ public class Venda  implements Serializable{
 	@Coluna(nome="id_cliente")
 	private Cliente cliente;
 	
-	@UmPraMuitos(nomeTabela="vendas_produtos", nomeCampo="id_produto")
+	@Serial
 	private List<ItemVenda> itens;
 	
 	

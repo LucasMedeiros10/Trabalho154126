@@ -84,7 +84,7 @@ public class SqlGenImpl extends SqlGen {
 					if (tipoParametro.equals(String.class)) {
 						tipoColuna = "VARCHAR("  + tamanhoColuna + ")";
 	
-					} else if (tipoParametro.equals(int.class)) {
+					} else if (tipoParametro.equals(int.class) || tipoParametro.equals(Cliente.class) || tipoParametro.equals(Produto.class)) {
 						tipoColuna = "INT";
 					} else if (tipoParametro.equals(BigDecimal.class)) {
 						tipoColuna = "FLOAT";

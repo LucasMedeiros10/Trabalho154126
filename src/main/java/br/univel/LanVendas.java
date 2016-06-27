@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +19,14 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 
 import br.univel.classes.Cliente;
+import br.univel.classes.Conexao;
+import br.univel.classes.DaoItemVenda;
+import br.univel.classes.DaoProduto;
+import br.univel.classes.DaoVenda;
 import br.univel.classes.ItemVenda;
 import br.univel.classes.ModeloItemVenda;
 import br.univel.classes.Produto;
+import br.univel.classes.Venda;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -39,11 +45,46 @@ public class LanVendas extends JFrame{
 	private LanVendas formAtual;
 	private List<ItemVenda> itens = new ArrayList<ItemVenda>();
 	private JLabel lblTotal;
+	private boolean editando = false;
+	private int id_venda;
 	
 	public LanVendas(){
 		setTitle("Lan\u00E7amento de Venda");
 		
 		btnSalvar = new JButton("Salvar");
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Venda v = new Venda();
+				
+				v.setId(getId_venda());
+				v.setCliente(clienteAtual);
+				v.setItens(itens);
+				
+				DaoVenda dv = new DaoVenda();
+				DaoItemVenda di = new DaoItemVenda();
+				try {
+					dv.setCon(new Conexao().abrirConexao());
+					di.setCon(dv.getCon());
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}				
+				
+				if(isEditando()){
+					dv.atualizar(v);
+					for(ItemVenda i : v.getItens()){
+						di.atualizar(i);
+					}
+					
+				}else{
+					dv.salvar(v);					
+					for(ItemVenda i : v.getItens()){
+						di.salvar(i);
+					}				
+					dispose();	
+				}
+			}
+		});
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
@@ -311,4 +352,40 @@ public class LanVendas extends JFrame{
 	public void setClienteAtual(Cliente clienteAtual) {
 		this.clienteAtual = clienteAtual;
 	}
+
+	public boolean isEditando() {
+		return editando;
+	}
+
+	public void setEditando(boolean editando) {
+		this.editando = editando;
+	}
+
+	public int getId_venda() {
+		return id_venda;
+	}
+
+	public void setId_venda(int id_venda) {
+		this.id_venda = id_venda;
+	}
+	
+	public void carregarDados(int codigo){
+		
+		DaoVenda dv = new DaoVenda();
+		DaoItemVenda di = new DaoItemVenda();
+		try {
+			dv.setCon(new Conexao().abrirConexao());
+			di.setCon(dv.getCon());
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}	
+		
+		Venda v = dv.buscar(codigo);
+		clienteAtual = v.getCliente();
+		txtCliente.setText(clienteAtual.getNome());
+		
+		
+		montarConsulta();
+	}		
 }

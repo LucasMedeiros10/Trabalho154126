@@ -185,7 +185,7 @@ public class PsqProdutos extends PsqPadrao{
 						CadProduto.setLocationRelativeTo(null); //centraliza na tela
 						CadProduto.lblTitulo.setText("Alterar Produto");
 						CadProduto.setEditando(true);
-						CadProduto.carregarDados((int) tblResultados.getModel().getValueAt(tblResultados.getSelectedRow(), 0));
+						CadProduto.carregarDados((int) tblResultados.getModel().getValueAt(tblResultados.getSelectedRow(), 0));				
 						CadProduto.setVisible(true);//mostra na tela	
 					}
 				}				
