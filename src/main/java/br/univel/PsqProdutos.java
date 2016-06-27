@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.PatternSyntaxException;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
@@ -24,6 +25,8 @@ import br.univel.classes.Produto;
 import br.univel.classes.ProdutoParser;
 import br.univel.classes.SerializadorImpl;
 import br.univel.excecoes.SerializadorException;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PsqProdutos extends PsqPadrao{
 
@@ -32,9 +35,22 @@ public class PsqProdutos extends PsqPadrao{
 	private SerializadorImpl<List<Produto>> serializador = new SerializadorImpl<List<Produto>>();
 	private ExportXMLImp<ListaProdutos> exportadorXML = new ExportXMLImp<ListaProdutos>();	
 	private DaoProduto dp = new DaoProduto();
+	private LanVendas frameSecundario;
 	
 	
 	public PsqProdutos(){
+		tblResultados.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(frameSecundario != null){
+					frameSecundario.txtNomeProduto.setText((String) tblResultados.getModel().getValueAt(tblResultados.getSelectedRow(), 1));
+					int cod = (int)tblResultados.getModel().getValueAt(tblResultados.getSelectedRow(), 0);
+					frameSecundario.setProdutoAtual(dp.buscar(cod));
+					dispose();
+				}
+			}
+		
+		});
 		
 		txtPesquisa.addKeyListener(new KeyAdapter() {
 			@Override
@@ -240,6 +256,14 @@ public class PsqProdutos extends PsqPadrao{
                 System.err.println("Erro");
              }
         }
+	}
+
+	public LanVendas getFrameSecundario() {
+		return frameSecundario;
+	}
+
+	public void setFrameSecundario(LanVendas frameSecundario) {
+		this.frameSecundario = frameSecundario;
 	}  	
 
 }

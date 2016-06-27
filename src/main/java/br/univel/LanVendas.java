@@ -3,20 +3,42 @@ package br.univel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JTextField;
+
+import br.univel.classes.Cliente;
+import br.univel.classes.ItemVenda;
+import br.univel.classes.ModeloItemVenda;
+import br.univel.classes.Produto;
+
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class LanVendas extends JFrame{
-	public GroupLayout groupLayout;
 	public JButton btnSalvar;
 	public JButton btnCancelar;
 	public JLabel lblTitulo;
+	public JTextField txtCliente;
+	private JLabel lblCliente;
+	private JTable tblProdutos;
+	public JTextField txtNomeProduto;
+	private JTextField txtQtde;
+	private Produto produtoAtual;
+	private Cliente clienteAtual;
+	private LanVendas formAtual;
+	private List<ItemVenda> itens = new ArrayList<ItemVenda>();
+	private JLabel lblTotal;
 	
 	public LanVendas(){
 		setTitle("Lan\u00E7amento de Venda");
@@ -34,31 +56,259 @@ public class LanVendas extends JFrame{
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setVerticalAlignment(SwingConstants.TOP);
 		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 18));
-		groupLayout = new GroupLayout(getContentPane());
+		
+		JLabel lblNewLabel = new JLabel("Valor Total:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		
+		lblTotal = new JLabel("0,00");
+		lblTotal.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblTotal.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		txtCliente = new JTextField();
+		txtCliente.setEditable(false);
+		txtCliente.setColumns(10);
+		
+		JButton btnProcurarCliente = new JButton("Procurar");
+		btnProcurarCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//tela
+				PsqClientes psqClientes = new PsqClientes();
+				psqClientes.setSize(740, 460);
+				psqClientes.setLocationRelativeTo(null); //centraliza na tela
+				psqClientes.btnInserir.setEnabled(false);
+				psqClientes.btnAlterar.setEnabled(false);
+				psqClientes.btnExcluir.setEnabled(false);
+				psqClientes.btnExportarXML.setEnabled(false);
+				psqClientes.btnImportarXML.setEnabled(false);
+				psqClientes.btnImportarTXT.setEnabled(false);
+				psqClientes.btnRestaurar.setEnabled(false);
+				psqClientes.btnSerializar.setEnabled(false);
+				psqClientes.setFrameSecundario(getFormAtual());
+				psqClientes.setVisible(true);//mostra na tela				
+			}
+		});
+		
+		lblCliente = new JLabel("Cliente");
+		
+		JScrollPane scrollPane = new JScrollPane();
+		
+		JLabel lblProduto = new JLabel("Produto");
+		
+		txtNomeProduto = new JTextField();
+		txtNomeProduto.setEditable(false);
+		txtNomeProduto.setColumns(10);
+		
+		JButton btnProcurarProd = new JButton("Procurar");
+		btnProcurarProd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//tela
+				PsqProdutos psqProdutos = new PsqProdutos();		
+				psqProdutos.setSize(740, 460);
+				psqProdutos.setLocationRelativeTo(null); //centraliza na tela
+				psqProdutos.btnInserir.setEnabled(false);
+				psqProdutos.btnAlterar.setEnabled(false);
+				psqProdutos.btnExcluir.setEnabled(false);
+				psqProdutos.btnExportarXML.setEnabled(false);
+				psqProdutos.btnImportarXML.setEnabled(false);
+				psqProdutos.btnImportarTXT.setEnabled(false);
+				psqProdutos.btnRestaurar.setEnabled(false);
+				psqProdutos.btnSerializar.setEnabled(false);
+				psqProdutos.setFrameSecundario(getFormAtual());				
+				psqProdutos.setVisible(true);//mostra na tela				
+			}
+		});
+		
+		txtQtde = new JTextField();
+		txtQtde.setText("1");
+		txtQtde.setColumns(10);
+		
+		JLabel lblQtde = new JLabel("Qtde");
+		
+		JButton btnInserirProd = new JButton("+");
+		btnInserirProd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(getProdutoAtual() != null){
+					if(txtQtde.getText().isEmpty() || txtQtde.getText().trim() == "0"){
+						JOptionPane.showMessageDialog(null, "Informe a quantidade.", "Aviso", JOptionPane.WARNING_MESSAGE);
+					}else{
+						//adiciona produto na lista
+						ItemVenda iv = new ItemVenda();
+						iv.setP(produtoAtual);
+						iv.setQtde(new BigDecimal(txtQtde.getText()));
+						itens.add(iv);
+						
+						
+						montarConsulta();
+						calcularTotal();
+						limparProduto();						
+					}
+				}else{
+					JOptionPane.showMessageDialog(null, "Escolha um produto para lançamento.", "Aviso", JOptionPane.WARNING_MESSAGE);
+				}
+			}
+		});
+		btnInserirProd.setFont(new Font("Tahoma", Font.BOLD, 12));
+		
+		JButton btnExcluirProd = new JButton("-");
+		btnExcluirProd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(itens.isEmpty()){
+					JOptionPane.showMessageDialog(null, "Nenhum registro a ser excluído.", "Informação", JOptionPane.INFORMATION_MESSAGE);
+				}else{	
+					if(tblProdutos.getSelectedRow() == -1){
+						JOptionPane.showMessageDialog(null, "Selecione um registro.", "Informação", JOptionPane.INFORMATION_MESSAGE);
+					}else{
+					
+						int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o registro?", "Exclusão", JOptionPane.YES_NO_OPTION);
+						
+						if(opcao == 0){
+							itens.remove(tblProdutos.getSelectedRow());
+							montarConsulta();
+							calcularTotal();
+							limparProduto();
+						}
+					}
+				}				
+
+			}
+		});
+		btnExcluirProd.setFont(new Font("Tahoma", Font.BOLD, 12));
+		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
-						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-							.addComponent(btnCancelar, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(btnSalvar, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(24)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblCliente)
+										.addComponent(txtCliente, GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+											.addComponent(lblProduto)
+											.addGroup(groupLayout.createSequentialGroup()
+												.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+													.addComponent(lblQtde)
+													.addComponent(txtQtde, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
+												.addPreferredGap(ComponentPlacement.UNRELATED)
+												.addComponent(btnInserirProd)
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(btnExcluirProd))
+											.addComponent(txtNomeProduto, GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)))
+									.addGap(18)
+									.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+										.addComponent(btnProcurarCliente)
+										.addComponent(btnProcurarProd, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(lblNewLabel)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(lblTotal, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
+								.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE))
+							.addGap(51)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(btnSalvar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(btnCancelar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+					.addGap(25))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblTitulo)
-					.addGap(24)
-					.addComponent(btnSalvar)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnCancelar)
-					.addContainerGap(193, Short.MAX_VALUE))
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(20)
+							.addComponent(lblCliente)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(txtCliente, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnProcurarCliente)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(19)
+							.addComponent(btnSalvar)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnCancelar)))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblProduto)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtNomeProduto, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnProcurarProd))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(lblQtde)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtQtde, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnInserirProd)
+						.addComponent(btnExcluirProd))
+					.addGap(18)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblTotal)
+						.addComponent(lblNewLabel))
+					.addContainerGap())
 		);
+		
+		tblProdutos = new JTable();
+		scrollPane.setViewportView(tblProdutos);
 		getContentPane().setLayout(groupLayout);
 		
+		setFormAtual(this);
+		// $hide>>$
+		montarConsulta();
+		calcularTotal();
+		// $hide<<$			
+	}
+
+	public Produto getProdutoAtual() {
+		return produtoAtual;
+	}
+
+	public void setProdutoAtual(Produto produtoAtual) {
+		this.produtoAtual = produtoAtual;
+	}
+
+	public LanVendas getFormAtual() {
+		return formAtual;
+	}
+
+	public void setFormAtual(LanVendas formAtual) {
+		this.formAtual = formAtual;
+	}
+	
+	private void montarConsulta(){
+		ModeloItemVenda modelo = new ModeloItemVenda(itens);//instancia um modelo de tabela
+		tblProdutos.setModel(modelo);//seta a tabela		
+	}
+	
+	private void limparProduto(){
+		setProdutoAtual(null);
+		txtQtde.setText("1");
+		txtNomeProduto.setText("");
+	}
+	
+	private void calcularTotal(){
+		BigDecimal total = new BigDecimal("0");
+
+		for(ItemVenda iv : itens){
+			total = iv.getP().getPreco().multiply(iv.getQtde()).add(total);
+		}
 		
+		lblTotal.setText(total.toString());
+	}
+
+	public Cliente getClienteAtual() {
+		return clienteAtual;
+	}
+
+	public void setClienteAtual(Cliente clienteAtual) {
+		this.clienteAtual = clienteAtual;
 	}
 }

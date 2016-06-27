@@ -25,6 +25,8 @@ import br.univel.excecoes.SerializadorException;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PsqClientes extends PsqPadrao{
 	
@@ -33,10 +35,22 @@ public class PsqClientes extends PsqPadrao{
 	private SerializadorImpl<List<Cliente>> serializador = new SerializadorImpl<List<Cliente>>();
 	private ExportXMLImp<ListaClientes> exportadorXML = new ExportXMLImp<ListaClientes>();
 	private DaoCliente dc  = new DaoCliente();
+	private LanVendas frameSecundario;
 	
 	
 	
-	public PsqClientes(){	
+	public PsqClientes(){
+		tblResultados.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(frameSecundario != null){
+					frameSecundario.txtCliente.setText((String) tblResultados.getModel().getValueAt(tblResultados.getSelectedRow(), 1));
+					int cod = (int)tblResultados.getModel().getValueAt(tblResultados.getSelectedRow(), 0);
+					frameSecundario.setClienteAtual(dc.buscar(cod));
+					dispose();
+				}				
+			}
+		});	
 		
 		txtPesquisa.addKeyListener(new KeyAdapter() {
 			@Override
@@ -248,6 +262,14 @@ public class PsqClientes extends PsqPadrao{
                 System.err.println("Erro");
              }
         }
+	}
+
+	public LanVendas getFrameSecundario() {
+		return frameSecundario;
+	}
+
+	public void setFrameSecundario(LanVendas frameSecundario) {
+		this.frameSecundario = frameSecundario;
 	}   
 	
 }

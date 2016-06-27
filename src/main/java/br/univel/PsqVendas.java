@@ -71,7 +71,7 @@ public class PsqVendas extends PsqPadrao {
 			public void actionPerformed(ActionEvent e) {
 				//tela
 				LanVendas LanVendas = new LanVendas();		
-				LanVendas.setSize(800, 600);
+				LanVendas.setSize(615, 466);
 				LanVendas.setLocationRelativeTo(null); //centraliza na tela
 				LanVendas.lblTitulo.setText("Alteração de Venda");
 				LanVendas.setVisible(true);//mostra na tela				
@@ -83,7 +83,7 @@ public class PsqVendas extends PsqPadrao {
 			public void actionPerformed(ActionEvent e) {
 				//tela
 				LanVendas LanVendas = new LanVendas();		
-				LanVendas.setSize(800, 600);
+				LanVendas.setSize(615, 466);
 				LanVendas.setLocationRelativeTo(null); //centraliza na tela
 				LanVendas.lblTitulo.setText("Lançamento de Venda");
 				LanVendas.setVisible(true);//mostra na tela				
@@ -103,7 +103,6 @@ public class PsqVendas extends PsqPadrao {
 		ModeloVenda modelo = new ModeloVenda(lista);//instancia um modelo de tabela
 		tblResultados.setModel(modelo);//seta a tabela	
 		tblResultados.getColumnModel().getColumn(0).setPreferredWidth(55);		
-		tblResultados.getColumnModel().getColumn(1).setPreferredWidth(380);		
-		tblResultados.getColumnModel().getColumn(2).setPreferredWidth(200);			
+		tblResultados.getColumnModel().getColumn(1).setPreferredWidth(380);			
 	}	
 }
