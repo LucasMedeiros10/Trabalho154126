@@ -59,4 +59,38 @@
             <qtde>1</qtde>
         </itens>
     </venda>
+    <venda>
+        <cliente>
+            <bairro>BAIRRO TESTE</bairro>
+            <celular>(45)9925-5438</celular>
+            <cep>85803550</cep>
+            <cidade>CASCAVEL</cidade>
+            <complemento>próximo a prefeitura</complemento>
+            <endereco>RUA TESTE</endereco>
+            <estado>PR</estado>
+            <id>11</id>
+            <nome>RENATO SPENGLER</nome>
+            <numero>200</numero>
+            <telefone>(45)3228-2096</telefone>
+        </cliente>
+        <id>3</id>
+        <itens>
+            <id_venda>3</id_venda>
+            <p>
+                <descricao>BATERIA PORTATIL POWER BANK PB-2001 2000MAH USB</descricao>
+                <id>8770</id>
+                <preco>7</preco>
+            </p>
+            <qtde>1</qtde>
+        </itens>
+        <itens>
+            <id_venda>3</id_venda>
+            <p>
+                <descricao>BONECO ALIENS VS PREDATOR (CABEZA ALIENS) (69510)</descricao>
+                <id>8838</id>
+                <preco>28</preco>
+            </p>
+            <qtde>1</qtde>
+        </itens>
+    </venda>
 </listaVendas>

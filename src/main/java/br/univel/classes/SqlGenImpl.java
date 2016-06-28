@@ -352,7 +352,6 @@ public class SqlGenImpl extends SqlGen {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		System.out.println(sb.toString());
 		return ps;
 	}
 
