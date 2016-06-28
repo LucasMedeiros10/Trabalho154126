@@ -1,13 +1,21 @@
 package br.univel.classes;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 import br.univel.anotacoes.Coluna;
+import br.univel.anotacoes.Serial;
 import br.univel.anotacoes.Tabela;
 
 @Tabela("vendas_produtos")
 @XmlRootElement
-public class ItemVenda {
+public class ItemVenda implements Serializable{
+
+	/**
+	 * 
+	 */
+	@Serial
+	private static final long serialVersionUID = 4828102383916007835L;
 
 	@Coluna(nome="id_venda", pk=true)
 	private int id_venda;

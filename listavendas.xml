@@ -1,2 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<listaVendas/>
+<listaVendas>
+    <venda>
+        <cliente>
+            <bairro>BAIRRO TESTE</bairro>
+            <celular>99999999</celular>
+            <cep>85803550</cep>
+            <cidade>CASCAVEL</cidade>
+            <complemento>próximo a prefeitura</complemento>
+            <endereco>RUA TESTE</endereco>
+            <estado>PR</estado>
+            <id>8</id>
+            <nome>GETULIO - PEDRO GETULIO SAIBEL</nome>
+            <numero>200</numero>
+            <telefone>3228-33-42</telefone>
+        </cliente>
+        <id>1</id>
+        <itens>
+            <id_venda>1</id_venda>
+            <p>
+                <descricao>BONECO BATMAN ARKHAM F013 GRANDE (70927)</descricao>
+                <id>751</id>
+                <preco>124</preco>
+            </p>
+            <qtde>1</qtde>
+        </itens>
+    </venda>
+    <venda>
+        <cliente>
+            <bairro>BAIRRO TESTE</bairro>
+            <celular>99999999</celular>
+            <cep>85803550</cep>
+            <cidade>CASCAVEL</cidade>
+            <complemento>próximo a prefeitura</complemento>
+            <endereco>RUA TESTE</endereco>
+            <estado>PR</estado>
+            <id>5</id>
+            <nome>CHICO - ALTAMIR FRANCISCO LENCINA SILVA</nome>
+            <numero>200</numero>
+            <telefone>99999999</telefone>
+        </cliente>
+        <id>2</id>
+        <itens>
+            <id_venda>2</id_venda>
+            <p>
+                <descricao>BONECO BATMAN ARKHAM F013 GRANDE (70927)</descricao>
+                <id>751</id>
+                <preco>124</preco>
+            </p>
+            <qtde>1</qtde>
+        </itens>
+        <itens>
+            <id_venda>2</id_venda>
+            <p>
+                <descricao>BATERIA PORTATIL POWER BANK PB-2001 2000MAH USB</descricao>
+                <id>8770</id>
+                <preco>7</preco>
+            </p>
+            <qtde>1</qtde>
+        </itens>
+    </venda>
+</listaVendas>

@@ -13,11 +13,13 @@ import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+import br.univel.classes.Cliente;
 import br.univel.classes.Conexao;
 import br.univel.classes.DaoItemVenda;
 import br.univel.classes.DaoVenda;
 import br.univel.classes.ExportXMLImp;
 import br.univel.classes.ItemVenda;
+import br.univel.classes.ListaClientes;
 import br.univel.classes.ListaVendas;
 import br.univel.classes.ModeloVenda;
 import br.univel.classes.Produto;
@@ -87,27 +89,44 @@ public class PsqVendas extends PsqPadrao {
 			public void actionPerformed(ActionEvent e) {
 		
 				try {
-					lista.clear();
-					lista = serializador.ler(new File("listavendas.dat"));
-					montarConsulta();
+					List<Venda> listaTemp = new ArrayList<Venda>();					
+					listaTemp = serializador.ler(new File("listavendas.dat"));
+					
+					for(Venda v : listaTemp){
+						if(dv.buscar(v.getId()).getId() > 0){
+							dv.atualizar(v);
+						}else{
+							dv.salvar(v);
+						}
+					}
+					JOptionPane.showMessageDialog(null, "Restauração finalizada com sucesso.", "Informação", JOptionPane.INFORMATION_MESSAGE);
+					montarConsulta();				
+				
 				} catch (SerializadorException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}			
-				JOptionPane.showMessageDialog(null, "Restauração finalizada com sucesso.", "Informação", JOptionPane.INFORMATION_MESSAGE);
-				
+				}
 			}
 		});
 		
 		btnImportarXML.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ListaVendas lv = new ListaVendas();
-				lv = exportadorXML.ImportarXml(lv, new File("listavendas.xml"));
+				lv = exportadorXML.ImportarXml(lv, new File("listavendas.xml"));		
 				
-				lista.clear();
-				lista = lv.getListaVenda();
-				montarConsulta();		
-				JOptionPane.showMessageDialog(null, "Importação de XML finalizada com sucesso.", "Informação", JOptionPane.INFORMATION_MESSAGE);
+				
+				List<Venda> listaTemp = new ArrayList<Venda>();					
+				listaTemp = lv.getListaVenda();
+				
+				for(Venda v : listaTemp){
+					if(dv.buscar(v.getId()).getId() > 0){
+						dv.atualizar(v);
+					}else{
+						dv.salvar(v);
+					}
+				}
+				JOptionPane.showMessageDialog(null, "Importação de XML finalizado com sucesso.", "Informação", JOptionPane.INFORMATION_MESSAGE);
+				montarConsulta();					
 				
 			}
 		});

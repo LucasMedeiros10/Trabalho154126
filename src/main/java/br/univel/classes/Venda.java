@@ -20,15 +20,15 @@ public class Venda  implements Serializable{
 	 */
 	@Serial
 	private static final long serialVersionUID = -3489894237623305021L;
+
+	@Serial
+	private List<ItemVenda> itens;
 	
 	@Coluna(nome="id", pk=true)
 	private int id;
 	
 	@Coluna(nome="id_cliente")
-	private Cliente cliente;
-	
-	@Serial
-	private List<ItemVenda> itens;
+	private Cliente cliente;	
 	
 	
 	public List<ItemVenda> getItens() {

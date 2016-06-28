@@ -104,7 +104,7 @@ public class DaoItemVenda implements Dao<ItemVenda, Integer> {
 		
 		try {
 
-			PreparedStatement ps = gerador.getSqlDeleteById(con, new ItemVenda());
+			PreparedStatement ps = con.prepareStatement("DELETE FROM vendas_produtos WHERE id_venda = ?");
 			ps.setInt(1, k);
 			ps.executeUpdate();
 			ps.close();
@@ -192,5 +192,38 @@ public class DaoItemVenda implements Dao<ItemVenda, Integer> {
 		
 		return cod;
 	}
+	
+	public List<ItemVenda> listarItensVenda(int id_venda) {
+		List<ItemVenda> listaItemVenda = new ArrayList<ItemVenda>();
+		DaoProduto dp = new DaoProduto();
+		dp.setCon(con);
+				
+				
+		try {
+
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM vendas_produtos WHERE id_venda = ?");
+			ps.setInt(1, id_venda);
+			ResultSet resultados = ps.executeQuery();
+			
+			while (resultados.next()) {
+				ItemVenda i = new ItemVenda();
+				
+				i.setId_venda(resultados.getInt("id_venda"));				
+				i.setP(dp.buscar(resultados.getInt("id_produto")));
+				i.setQtde(resultados.getBigDecimal("qtde"));
+				
+				listaItemVenda.add(i);
+			}			
+			
+			ps.close();
+			resultados.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}				
+		
+		return listaItemVenda;
+	}
+
 
 }

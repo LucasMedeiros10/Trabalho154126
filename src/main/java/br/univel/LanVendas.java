@@ -20,8 +20,6 @@ import javax.swing.JTextField;
 
 import br.univel.classes.Cliente;
 import br.univel.classes.Conexao;
-import br.univel.classes.DaoItemVenda;
-import br.univel.classes.DaoProduto;
 import br.univel.classes.DaoVenda;
 import br.univel.classes.ItemVenda;
 import br.univel.classes.ModeloItemVenda;
@@ -54,34 +52,32 @@ public class LanVendas extends JFrame{
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Venda v = new Venda();
 				
-				v.setId(getId_venda());
-				v.setCliente(clienteAtual);
-				v.setItens(itens);
-				
-				DaoVenda dv = new DaoVenda();
-				DaoItemVenda di = new DaoItemVenda();
-				try {
-					dv.setCon(new Conexao().abrirConexao());
-					di.setCon(dv.getCon());
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}				
-				
-				if(isEditando()){
-					dv.atualizar(v);
-					for(ItemVenda i : v.getItens()){
-						di.atualizar(i);
-					}
+				if(itens.isEmpty()){
+					JOptionPane.showMessageDialog(null, "Informe pelo menos um produto.", "Informação", JOptionPane.WARNING_MESSAGE);
+				}else{	
+					Venda v = new Venda();
 					
-				}else{
-					dv.salvar(v);					
-					for(ItemVenda i : v.getItens()){
-						di.salvar(i);
+					v.setId(getId_venda());
+					v.setCliente(clienteAtual);
+					v.setItens(itens);
+					
+					DaoVenda dv = new DaoVenda();
+					try {
+						dv.setCon(new Conexao().abrirConexao());
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
 					}				
-					dispose();	
+					
+					if(isEditando()){
+						dv.atualizar(v);	
+						dispose();	
+						
+					}else{
+						dv.salvar(v);		
+						dispose();	
+					}
 				}
 			}
 		});
@@ -177,6 +173,7 @@ public class LanVendas extends JFrame{
 						ItemVenda iv = new ItemVenda();
 						iv.setP(produtoAtual);
 						iv.setQtde(new BigDecimal(txtQtde.getText()));
+						iv.setId_venda(id_venda);
 						itens.add(iv);
 						
 						
@@ -229,22 +226,21 @@ public class LanVendas extends JFrame{
 								.addGroup(groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(lblCliente)
-										.addComponent(txtCliente, GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-											.addComponent(lblProduto)
-											.addGroup(groupLayout.createSequentialGroup()
-												.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-													.addComponent(lblQtde)
-													.addComponent(txtQtde, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
-												.addPreferredGap(ComponentPlacement.UNRELATED)
-												.addComponent(btnInserirProd)
-												.addPreferredGap(ComponentPlacement.RELATED)
-												.addComponent(btnExcluirProd))
-											.addComponent(txtNomeProduto, GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)))
-									.addGap(18)
-									.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-										.addComponent(btnProcurarCliente)
-										.addComponent(btnProcurarProd, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)))
+										.addComponent(txtCliente, GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+										.addComponent(lblProduto)
+										.addGroup(groupLayout.createSequentialGroup()
+											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+												.addComponent(lblQtde)
+												.addComponent(txtQtde, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
+											.addPreferredGap(ComponentPlacement.UNRELATED)
+											.addComponent(btnInserirProd)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(btnExcluirProd))
+										.addComponent(txtNomeProduto, GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+										.addComponent(btnProcurarCliente, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(btnProcurarProd, GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)))
 								.addGroup(groupLayout.createSequentialGroup()
 									.addComponent(lblNewLabel)
 									.addPreferredGap(ComponentPlacement.RELATED)
@@ -372,20 +368,22 @@ public class LanVendas extends JFrame{
 	public void carregarDados(int codigo){
 		
 		DaoVenda dv = new DaoVenda();
-		DaoItemVenda di = new DaoItemVenda();
 		try {
 			dv.setCon(new Conexao().abrirConexao());
-			di.setCon(dv.getCon());
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}	
 		
 		Venda v = dv.buscar(codigo);
-		clienteAtual = v.getCliente();
-		txtCliente.setText(clienteAtual.getNome());
+		itens.clear();
+		itens = v.getItens();
+
 		
-		
+		setClienteAtual(v.getCliente());
+		txtCliente.setText(clienteAtual.getNome());		
+		setId_venda(v.getId());
 		montarConsulta();
+		calcularTotal();
 	}		
 }

@@ -12,6 +12,7 @@ import br.univel.interfaces.Dao;
 public class DaoVenda implements Dao<Venda, Integer> {
 
 
+	private DaoItemVenda di = new DaoItemVenda();
 	private Connection con = null;
 	
 	
@@ -31,10 +32,14 @@ public class DaoVenda implements Dao<Venda, Integer> {
 
 			PreparedStatement ps = gerador.getSqlInsert(con, t);
 			ps.setInt(1, t.getId());
-			ps.setInt(2, t.getCliente().getId());
-			
+			ps.setInt(2, t.getCliente().getId());			
 			ps.executeUpdate();
 			ps.close();
+			
+			di.setCon(con);
+			for(ItemVenda iv :  t.getItens()){
+				di.salvar(iv);
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -57,14 +62,19 @@ public class DaoVenda implements Dao<Venda, Integer> {
 				
 		try {
 
-			PreparedStatement ps = gerador.getSqlSelectById(con, new Cliente());
+			PreparedStatement ps = gerador.getSqlSelectById(con, new Venda());
 			ps.setInt(1, k);
 			ResultSet resultados = ps.executeQuery();
 			
+			di.setCon(con);
 			while (resultados.next()) {
 				v.setId(resultados.getInt("id"));				
 				v.setCliente(dc.buscar(resultados.getInt("id_cliente")));
+				v.setItens(di.listarItensVenda(v.getId()));
 			}			
+			
+			di.setCon(con);
+			
 			
 			ps.close();
 			resultados.close();
@@ -78,16 +88,22 @@ public class DaoVenda implements Dao<Venda, Integer> {
 
 	@Override
 	public void atualizar(Venda t) {
-		SqlGenImpl gerador = new SqlGenImpl();
+		SqlGenImpl gerador = 	new SqlGenImpl();
 			
 		try {
 
 			PreparedStatement ps = gerador.getSqlUpdateById(con, t);
 			ps.setInt(1, t.getCliente().getId());
-			ps.setInt(2, t.getId());
-			
+			ps.setInt(2, t.getId());						
 			ps.executeUpdate();
 			ps.close();
+			
+			//atualizar produtos
+			di.setCon(con);
+			di.excluir(t.getId());
+			for(ItemVenda iv :  t.getItens()){
+				di.salvar(iv);
+			}			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -105,6 +121,10 @@ public class DaoVenda implements Dao<Venda, Integer> {
 			ps.setInt(1, k);
 			ps.executeUpdate();
 			ps.close();
+			
+			//excluir produtos
+			di.setCon(con);
+			di.excluir(k);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -129,6 +149,7 @@ public class DaoVenda implements Dao<Venda, Integer> {
 
 			PreparedStatement ps = gerador.getSqlSelectAll(con, new Venda());
 			ResultSet resultados = ps.executeQuery();
+			di.setCon(con);
 			
 			while (resultados.next()) {
 				
@@ -136,6 +157,8 @@ public class DaoVenda implements Dao<Venda, Integer> {
 				
 				v.setId(resultados.getInt("id"));
 				v.setCliente(dc.buscar(resultados.getInt("id_cliente")));
+				v.setItens(di.listarItensVenda(v.getId()));
+				
 				listaVenda.add(v);
 			}			
 			

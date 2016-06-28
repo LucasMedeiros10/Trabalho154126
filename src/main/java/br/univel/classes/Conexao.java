@@ -10,10 +10,12 @@ public class Conexao {
 	private Connection con = null;		
 
 	public Connection abrirConexao() throws SQLException {
-
-		String url = "jdbc:mysql://localhost/trabalho2bim";
-		String user = "root";
-		String pass = "root";
+		PropertiesSistema ps = new PropertiesSistema();
+		
+		
+		String url = "jdbc:mysql://" + ps.ler("ip") +"/" + ps.ler("bd");
+		String user = ps.ler("user");
+		String pass = ps.ler("password");
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

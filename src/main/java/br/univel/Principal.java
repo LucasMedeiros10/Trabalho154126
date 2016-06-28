@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 
 import br.univel.classes.Conexao;
 import br.univel.classes.DaoCliente;
+import br.univel.classes.PropertiesSistema;
 import br.univel.relatorios.ClienteJRDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -141,7 +142,11 @@ public class Principal extends JFrame{
 		
 		jp.add(lblTitulo, BorderLayout.NORTH);			
 		
-		setContentPane(jp);  //pertence a JFrame		
+		setContentPane(jp);  //pertence a JFrame
+		
+		// $hide>>$
+		new PropertiesSistema().escrever();
+		// $hide<<$			
 	}
 	
 	
