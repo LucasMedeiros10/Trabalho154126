@@ -166,7 +166,7 @@ public class Principal extends JFrame{
 	}
 
 	private void imprimirRelClientes() throws JRException{
-		String arq = "cliente_report.jasper";
+		String arq = "client_report.jrxml";
 		
 		DaoCliente dao = new DaoCliente();
 		try {
