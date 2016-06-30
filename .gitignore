@@ -1,2 +1,5 @@
 /target/
 /cliente_report.jasper
+/client_report.jasper
+/vendas_report.jasper
+/produtos_report.jasper

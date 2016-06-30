@@ -1,6 +1,7 @@
 package br.univel.classes;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -9,7 +10,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import br.univel.anotacoes.Coluna;
 import br.univel.anotacoes.Serial;
 import br.univel.anotacoes.Tabela;
-import br.univel.anotacoes.UmPraMuitos;
 
 @Tabela("vendas")
 @XmlRootElement
@@ -30,7 +30,16 @@ public class Venda  implements Serializable{
 	@Coluna(nome="id_cliente")
 	private Cliente cliente;	
 	
+	@Coluna(nome="vlrPago")
+	private BigDecimal vlrPago;
 	
+	
+	public BigDecimal getVlrPago() {
+		return vlrPago;
+	}
+	public void setVlrPago(BigDecimal vlrPago) {
+		this.vlrPago = vlrPago;
+	}
 	public List<ItemVenda> getItens() {
 		return itens;
 	}

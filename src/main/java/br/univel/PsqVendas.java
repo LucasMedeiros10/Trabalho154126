@@ -152,7 +152,7 @@ public class PsqVendas extends PsqPadrao {
 					}else{					
 						//tela
 						LanVendas LanVendas = new LanVendas();		
-						LanVendas.setSize(615, 466);
+						LanVendas.setSize(700, 530);
 						LanVendas.setLocationRelativeTo(null); //centraliza na tela
 						LanVendas.lblTitulo.setText("Alteração de Venda");
 						LanVendas.setEditando(true);
@@ -167,7 +167,7 @@ public class PsqVendas extends PsqPadrao {
 			public void actionPerformed(ActionEvent e) {
 				//tela
 				LanVendas LanVendas = new LanVendas();		
-				LanVendas.setSize(615, 466);
+				LanVendas.setSize(700, 530);
 				LanVendas.setLocationRelativeTo(null); //centraliza na tela
 				LanVendas.lblTitulo.setText("Lançamento de Venda");
 				LanVendas.setEditando(false);

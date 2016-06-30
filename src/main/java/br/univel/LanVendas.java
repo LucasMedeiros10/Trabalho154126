@@ -28,6 +28,10 @@ import br.univel.classes.Venda;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JFormattedTextField;
+import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class LanVendas extends JFrame{
 	public JButton btnSalvar;
@@ -212,6 +216,41 @@ public class LanVendas extends JFrame{
 			}
 		});
 		btnExcluirProd.setFont(new Font("Tahoma", Font.BOLD, 12));
+		
+		JLabel lblValorPago = new JLabel("Valor Pago:");
+		lblValorPago.setFont(new Font("Tahoma", Font.BOLD, 12));
+		
+		JLabel lblVlrTroco = new JLabel("0.00");
+		
+		JFormattedTextField txtVlrPago = new JFormattedTextField();
+		txtVlrPago.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				String caracteres="0987654321.";
+				if(!caracteres.contains(e.getKeyChar()+"")){
+					e.consume();
+				}
+			}
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(new BigDecimal(txtVlrPago.getText()).subtract(new BigDecimal(lblTotal.getText())).doubleValue() > 0){
+					lblVlrTroco.setText(new BigDecimal(txtVlrPago.getText()).subtract(new BigDecimal(lblTotal.getText())).toString());
+				}else{
+					lblVlrTroco.setText("0.00");
+				}					
+			}
+		});
+		
+		txtVlrPago.setFont(new Font("Tahoma", Font.BOLD, 12));
+		txtVlrPago.setHorizontalAlignment(SwingConstants.RIGHT);
+		txtVlrPago.setText("0.00");
+		txtVlrPago.setForeground(Color.RED);
+		
+		JLabel lblTroco = new JLabel("Troco:");
+		lblTroco.setFont(new Font("Tahoma", Font.BOLD, 12));
+		
+		
+		lblVlrTroco.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
@@ -219,14 +258,14 @@ public class LanVendas extends JFrame{
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE))
+							.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(24)
 							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 								.addGroup(groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(lblCliente)
-										.addComponent(txtCliente, GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+										.addComponent(txtCliente, GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
 										.addComponent(lblProduto)
 										.addGroup(groupLayout.createSequentialGroup()
 											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -236,16 +275,29 @@ public class LanVendas extends JFrame{
 											.addComponent(btnInserirProd)
 											.addPreferredGap(ComponentPlacement.RELATED)
 											.addComponent(btnExcluirProd))
-										.addComponent(txtNomeProduto, GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
+										.addComponent(txtNomeProduto, GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE))
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
 										.addComponent(btnProcurarCliente, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 										.addComponent(btnProcurarProd, GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblNewLabel)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(lblTotal, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
-								.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE))
+								.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+									.addGroup(groupLayout.createSequentialGroup()
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(lblValorPago)
+										.addGap(18)
+										.addComponent(txtVlrPago))
+									.addGroup(groupLayout.createSequentialGroup()
+										.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+											.addComponent(lblNewLabel)
+											.addComponent(lblTroco))
+										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+											.addGroup(groupLayout.createSequentialGroup()
+												.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(lblVlrTroco))
+											.addGroup(groupLayout.createSequentialGroup()
+												.addGap(38)
+												.addComponent(lblTotal, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))))))
 							.addGap(51)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
 								.addComponent(btnSalvar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -290,7 +342,15 @@ public class LanVendas extends JFrame{
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblTotal)
 						.addComponent(lblNewLabel))
-					.addContainerGap())
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtVlrPago, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblValorPago))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblTroco)
+						.addComponent(lblVlrTroco))
+					.addGap(45))
 		);
 		
 		tblProdutos = new JTable();

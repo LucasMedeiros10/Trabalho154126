@@ -104,21 +104,31 @@ public class Principal extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					imprimirRelClientes();
-				} catch (JRException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				executarRelatorio("client_report.jasper");	
 			}
-		});
-		
+		});		
 		mnRelatrios.add(mntmClientesRel);
 		
 		JMenuItem mntmProdutosRel = new JMenuItem("Produtos");
+		//classe anonima
+		mntmProdutosRel.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				executarRelatorio("produtos_report.jasper");	
+			}
+		});		
 		mnRelatrios.add(mntmProdutosRel);
 		
 		JMenuItem mntmVendasRel = new JMenuItem("Vendas");
+		//classe anonima
+		mntmVendasRel.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				executarRelatorio("vendas_report.jasper");	
+			}
+		});		
 		mnRelatrios.add(mntmVendasRel);
 		
 		JMenu mnSair = new JMenu("Sair");
@@ -164,21 +174,16 @@ public class Principal extends JFrame{
 			}
 		});
 	}
+	
+	private void executarRelatorio(String arquivo){					
 
-	private void imprimirRelClientes() throws JRException{
-		String arq = "client_report.jrxml";
-		
-		DaoCliente dao = new DaoCliente();
+		JasperPrint jp = null;
 		try {
-			dao.setCon(new Conexao().abrirConexao());
-		} catch (SQLException e1) {
+			jp = JasperFillManager.fillReport(arquivo, null, new Conexao().abrirConexao());
+		} catch (SQLException | JRException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		ClienteJRDataSource ds = new ClienteJRDataSource(dao.listarTodos());
-
-
-		JasperPrint jp = JasperFillManager.fillReport(arq, null, ds);
 
 		JasperViewer jasperViewer = new JasperViewer(jp);
 
@@ -186,8 +191,8 @@ public class Principal extends JFrame{
 		jasperViewer.setLocationRelativeTo(null);
 		jasperViewer.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-		jasperViewer.setVisible(true);		
+		jasperViewer.setVisible(true);			
 	}
-	
+
 
 }

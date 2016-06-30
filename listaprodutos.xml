@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <listaProdutos>
     <produto>
-        <descricao>BONECO ALIENS VS PREDATOR I003 GRANDE (54793)</descricao>
-        <id>303</id>
-        <preco>117</preco>
-    </produto>
-    <produto>
         <descricao>BONECO ALIENS VS PREDATOR BAD BLOOD I006 GRANDE (5</descricao>
         <id>347</id>
-        <preco>175</preco>
+        <preco>100</preco>
     </produto>
     <produto>
         <descricao>BONECO ALIENS VS PREDATOR (MEDIO CORPO) I005 (6952</descricao>
@@ -5109,5 +5104,10 @@
         <descricao>CAPA P/CEL. GALAXY S7 4LIFE BUMPER TRANSPARENTE</descricao>
         <id>195340</id>
         <preco>9</preco>
+    </produto>
+    <produto>
+        <descricao>PRODUTO TESTE LUCAS</descricao>
+        <id>195341</id>
+        <preco>1.99</preco>
     </produto>
 </listaProdutos>

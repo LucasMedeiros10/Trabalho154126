@@ -33,6 +33,7 @@ public class DaoVenda implements Dao<Venda, Integer> {
 			PreparedStatement ps = gerador.getSqlInsert(con, t);
 			ps.setInt(1, t.getId());
 			ps.setInt(2, t.getCliente().getId());			
+			ps.setBigDecimal(3, t.getVlrPago());
 			ps.executeUpdate();
 			ps.close();
 			
@@ -71,6 +72,7 @@ public class DaoVenda implements Dao<Venda, Integer> {
 				v.setId(resultados.getInt("id"));				
 				v.setCliente(dc.buscar(resultados.getInt("id_cliente")));
 				v.setItens(di.listarItensVenda(v.getId()));
+				v.setVlrPago(resultados.getBigDecimal("vlrPago"));
 			}			
 			
 			di.setCon(con);
@@ -94,7 +96,8 @@ public class DaoVenda implements Dao<Venda, Integer> {
 
 			PreparedStatement ps = gerador.getSqlUpdateById(con, t);
 			ps.setInt(1, t.getCliente().getId());
-			ps.setInt(2, t.getId());						
+			ps.setInt(2, t.getId());				
+			ps.setBigDecimal(3, t.getVlrPago());
 			ps.executeUpdate();
 			ps.close();
 			
@@ -158,6 +161,7 @@ public class DaoVenda implements Dao<Venda, Integer> {
 				v.setId(resultados.getInt("id"));
 				v.setCliente(dc.buscar(resultados.getInt("id_cliente")));
 				v.setItens(di.listarItensVenda(v.getId()));
+				v.setVlrPago(resultados.getBigDecimal("vlrPago"));
 				
 				listaVenda.add(v);
 			}			
