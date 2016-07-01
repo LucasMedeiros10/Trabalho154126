@@ -49,6 +49,8 @@ public class LanVendas extends JFrame{
 	private JLabel lblTotal;
 	private boolean editando = false;
 	private int id_venda;
+	private JFormattedTextField txtVlrPago;
+	private JLabel lblVlrTroco;
 	
 	public LanVendas(){
 		setTitle("Lan\u00E7amento de Venda");
@@ -60,27 +62,32 @@ public class LanVendas extends JFrame{
 				if(itens.isEmpty()){
 					JOptionPane.showMessageDialog(null, "Informe pelo menos um produto.", "Informação", JOptionPane.WARNING_MESSAGE);
 				}else{	
-					Venda v = new Venda();
-					
-					v.setId(getId_venda());
-					v.setCliente(clienteAtual);
-					v.setItens(itens);
-					
-					DaoVenda dv = new DaoVenda();
-					try {
-						dv.setCon(new Conexao().abrirConexao());
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}				
-					
-					if(isEditando()){
-						dv.atualizar(v);	
-						dispose();	
+					if(new BigDecimal(txtVlrPago.getText()).subtract(new BigDecimal(lblTotal.getText())).doubleValue() >= 0){
+						Venda v = new Venda();
 						
+						v.setId(getId_venda());
+						v.setVlrPago(new BigDecimal(txtVlrPago.getText()));
+						v.setCliente(clienteAtual);
+						v.setItens(itens);
+						
+						DaoVenda dv = new DaoVenda();
+						try {
+							dv.setCon(new Conexao().abrirConexao());
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}				
+						
+						if(isEditando()){
+							dv.atualizar(v);	
+							dispose();	
+							
+						}else{
+							dv.salvar(v);		
+							dispose();	
+						}
 					}else{
-						dv.salvar(v);		
-						dispose();	
+						JOptionPane.showMessageDialog(null, "Valor pago é inferior ao valor total da venda.", "Informação", JOptionPane.WARNING_MESSAGE);						
 					}
 				}
 			}
@@ -183,6 +190,7 @@ public class LanVendas extends JFrame{
 						
 						montarConsulta();
 						calcularTotal();
+						calcularTroco();
 						limparProduto();						
 					}
 				}else{
@@ -208,6 +216,7 @@ public class LanVendas extends JFrame{
 							itens.remove(tblProdutos.getSelectedRow());
 							montarConsulta();
 							calcularTotal();
+							calcularTroco();
 							limparProduto();
 						}
 					}
@@ -220,9 +229,9 @@ public class LanVendas extends JFrame{
 		JLabel lblValorPago = new JLabel("Valor Pago:");
 		lblValorPago.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
-		JLabel lblVlrTroco = new JLabel("0.00");
+		lblVlrTroco = new JLabel("0.00");
 		
-		JFormattedTextField txtVlrPago = new JFormattedTextField();
+		txtVlrPago = new JFormattedTextField();
 		txtVlrPago.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -233,11 +242,7 @@ public class LanVendas extends JFrame{
 			}
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(new BigDecimal(txtVlrPago.getText()).subtract(new BigDecimal(lblTotal.getText())).doubleValue() > 0){
-					lblVlrTroco.setText(new BigDecimal(txtVlrPago.getText()).subtract(new BigDecimal(lblTotal.getText())).toString());
-				}else{
-					lblVlrTroco.setText("0.00");
-				}					
+				calcularTroco();					
 			}
 		});
 		
@@ -361,6 +366,7 @@ public class LanVendas extends JFrame{
 		// $hide>>$
 		montarConsulta();
 		calcularTotal();
+		calcularTroco();
 		// $hide<<$			
 	}
 
@@ -401,6 +407,15 @@ public class LanVendas extends JFrame{
 		lblTotal.setText(total.toString());
 	}
 
+	private void calcularTroco(){
+		if(new BigDecimal(txtVlrPago.getText()).subtract(new BigDecimal(lblTotal.getText())).doubleValue() > 0){
+			lblVlrTroco.setText(new BigDecimal(txtVlrPago.getText()).subtract(new BigDecimal(lblTotal.getText())).toString());
+		}else{
+			lblVlrTroco.setText("0.00");
+		}		
+	}
+	
+	
 	public Cliente getClienteAtual() {
 		return clienteAtual;
 	}
@@ -443,7 +458,11 @@ public class LanVendas extends JFrame{
 		setClienteAtual(v.getCliente());
 		txtCliente.setText(clienteAtual.getNome());		
 		setId_venda(v.getId());
+		txtVlrPago.setText(v.getVlrPago().toString());
+		
 		montarConsulta();
 		calcularTotal();
+		calcularTroco();
+		
 	}		
 }

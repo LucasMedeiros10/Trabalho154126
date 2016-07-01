@@ -9,73 +9,23 @@
             <complemento>próximo a prefeitura</complemento>
             <endereco>RUA TESTE</endereco>
             <estado>PR</estado>
-            <id>8</id>
-            <nome>GETULIO - PEDRO GETULIO SAIBEL</nome>
-            <numero>200</numero>
-            <telefone>3228-33-42</telefone>
-        </cliente>
-        <id>1</id>
-        <itens>
-            <id_venda>1</id_venda>
-            <p>
-                <descricao>BONECO BATMAN ARKHAM F013 GRANDE (70927)</descricao>
-                <id>751</id>
-                <preco>124</preco>
-            </p>
-            <qtde>1</qtde>
-        </itens>
-    </venda>
-    <venda>
-        <cliente>
-            <bairro>BAIRRO TESTE</bairro>
-            <celular>99999999</celular>
-            <cep>85803550</cep>
-            <cidade>CASCAVEL</cidade>
-            <complemento>próximo a prefeitura</complemento>
-            <endereco>RUA TESTE</endereco>
-            <estado>PR</estado>
             <id>5</id>
             <nome>CHICO - ALTAMIR FRANCISCO LENCINA SILVA</nome>
             <numero>200</numero>
             <telefone>99999999</telefone>
         </cliente>
-        <id>2</id>
+        <id>1</id>
         <itens>
-            <id_venda>2</id_venda>
+            <id_venda>1</id_venda>
             <p>
-                <descricao>BONECO BATMAN ARKHAM F013 GRANDE (70927)</descricao>
-                <id>751</id>
-                <preco>124</preco>
+                <descricao>BONECO MARVEL IRON MAN D050 (71085)</descricao>
+                <id>773</id>
+                <preco>116</preco>
             </p>
             <qtde>1</qtde>
         </itens>
         <itens>
-            <id_venda>2</id_venda>
-            <p>
-                <descricao>BATERIA PORTATIL POWER BANK PB-2001 2000MAH USB</descricao>
-                <id>8770</id>
-                <preco>7</preco>
-            </p>
-            <qtde>1</qtde>
-        </itens>
-    </venda>
-    <venda>
-        <cliente>
-            <bairro>BAIRRO TESTE</bairro>
-            <celular>(45)9925-5438</celular>
-            <cep>85803550</cep>
-            <cidade>CASCAVEL</cidade>
-            <complemento>próximo a prefeitura</complemento>
-            <endereco>RUA TESTE</endereco>
-            <estado>PR</estado>
-            <id>11</id>
-            <nome>RENATO SPENGLER</nome>
-            <numero>200</numero>
-            <telefone>(45)3228-2096</telefone>
-        </cliente>
-        <id>3</id>
-        <itens>
-            <id_venda>3</id_venda>
+            <id_venda>1</id_venda>
             <p>
                 <descricao>BATERIA PORTATIL POWER BANK PB-2001 2000MAH USB</descricao>
                 <id>8770</id>
@@ -83,14 +33,6 @@
             </p>
             <qtde>1</qtde>
         </itens>
-        <itens>
-            <id_venda>3</id_venda>
-            <p>
-                <descricao>BONECO ALIENS VS PREDATOR (CABEZA ALIENS) (69510)</descricao>
-                <id>8838</id>
-                <preco>28</preco>
-            </p>
-            <qtde>1</qtde>
-        </itens>
+        <vlrPago>125</vlrPago>
     </venda>
 </listaVendas>

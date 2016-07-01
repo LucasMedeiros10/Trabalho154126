@@ -96,8 +96,8 @@ public class DaoVenda implements Dao<Venda, Integer> {
 
 			PreparedStatement ps = gerador.getSqlUpdateById(con, t);
 			ps.setInt(1, t.getCliente().getId());
-			ps.setInt(2, t.getId());				
-			ps.setBigDecimal(3, t.getVlrPago());
+			ps.setBigDecimal(2, t.getVlrPago());
+			ps.setInt(3, t.getId());				
 			ps.executeUpdate();
 			ps.close();
 			
